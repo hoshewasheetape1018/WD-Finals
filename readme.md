@@ -118,7 +118,7 @@ WD-ProjectName
 | Title | Purpose | Link |
 |-|-|-|
 | Sample Title | Sample purpose would be here like this and this is the example of what it is. | trykolang.com |
-
+| Figma | Design | https://www.figma.com/design/gemWR2atmCm6plFn3gVOuM/Untitled?node-id=0-1&m=dev&t=X8K8B5iARh44Ed40-1 |
 ## Wakatime
 
 <!--START_SECTION:waka-->
