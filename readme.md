@@ -122,4 +122,13 @@ WD-ProjectName
 ## Wakatime
 
 <!--START_SECTION:waka-->
+
+```txt
+CSS          20 hrs 24 mins  █████████████████▒░░░░░░░   69.52 %
+HTML         8 hrs 29 mins   ███████▒░░░░░░░░░░░░░░░░░   28.94 %
+Other        17 mins         ▒░░░░░░░░░░░░░░░░░░░░░░░░   00.96 %
+Markdown     8 mins          ░░░░░░░░░░░░░░░░░░░░░░░░░   00.51 %
+JavaScript   0 secs          ░░░░░░░░░░░░░░░░░░░░░░░░░   00.05 %
+```
+
 <!--END_SECTION:waka-->
