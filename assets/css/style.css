@@ -1,576 +1,106 @@
+body, html {
+  margin: 0;
+  height: 100%;
+  overflow-x: hidden;
+}
+
 body {
-    overflow-x: hidden;
-    margin: 0;
+  background-color: red;
 }
 
-.header {
-    text-align: center;
-    display: flex;
-    align-items: center;
-    padding: 0 20px; 
-    position: sticky;
-    width: 100%;
-    top: -1px;
-    z-index: 1000; 
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-}
-
-.navigation {
-    width: 100vw;
-    height: 8vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    gap: 4rem;
-    flex-grow: 1; 
-    font-size: 20px;
-}
-
-.navigation a {
-    text-decoration: none;
-    color: black !important;
-    z-index: 999;
-    transition: 0.2s ease-in-out;
-    mix-blend-mode: exclusion !important;
-
-}
-
-.navigation a:hover {
-    scale:1.09;
-}
-
-.navigation a:hover {
-color:red;
-}
-  
-
-
-  .section {
-    min-height: 100vh;
-    width: 100vw;
-  }
-
-    
-  .section:nth-of-type(2) {
-    background: linear-gradient(#2E2E2E, #0F0F0F);
-    grid-template-columns: auto auto;
-    display: grid;
-  }
-
-.avatar {
-  background-color: white;
-  box-shadow: 15px 10px red;
-  overflow: hidden;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width:45vw;
-}
-
-.avatar img {
-height:130vh;
-
-}
-
-.label {
-  pointer-events: none;
-  background-color: lightgrey;
-  padding:1%;
-  border-radius: 10px;
-  opacity: 0;
-  position: absolute;
-  bottom: 0%;
-  left:40%;
-  scale: 0.9;
-}
-
-
-.avatar:hover .label {
-  opacity:1;
-}
-
-
-
-.spacer {
-  text-align: center;
-  z-index: 15;
-  position: relative;
-  margin-top: -50px;
-  background-color: #0F0F0F;
+.hero {
+  display: grid;
   height: 100vh;
-  display: grid;
-  width: 100vw;
-  place-items: center;
-  animation: whitebg linear;
-  animation-timeline: view();
-  animation-range: 5% 30%;
-  animation-fill-mode: forwards;
-  font-family: 'Inter';
-  font-weight: bold;
-  font-size: 1.5rem;
+  background: lightblue;
+  position: relative;
+  grid-template-columns: auto auto auto;
 }
 
-.spacer:nth-of-type(5) {
-  background-color: white;
+.navbar {
+  width: 100%;
+  padding: -15px;
+  position:sticky;
+  font-family: sans-serif;
+  z-index: 10;
+  top: 0px;
+  margin-top: -50px;
+  mix-blend-mode: exclusion;
 }
 
-@keyframes whitebg {
-to {
-  background-color: white;
+.navbar nav {
+  width: 80%;
+  margin: 0 auto;
 }
-}
-
-@keyframes bluebg {
-  to {
-    background-color: blue;
-    color:white;
-  }
-  }
-
-  .spacer:nth-of-type(5) {
-    scale:1.1;
-    animation: bluebg linear;
-    animation-range: 45% 70%;
-    animation-timeline: view();
-    animation-fill-mode: forwards;
-  }
-
-.spacer span {
-opacity: 0;
-animation: intro linear;
-animation-timeline: view();
-animation-range: 20% 50%;
-animation-fill-mode: forwards;
+nav ul {
+  display: flex;
+  justify-content: space-around;
+  list-style: none;
+  margin: 0;
 }
 
-#Start button {
-  border-radius: 20px;
-  font-size: 2rem;
-  font-family: 'Inter', sans-serif;
-  padding:1%;
-  box-shadow: 5px 5px grey;
-  font-weight: bold;
+nav ul li {
+  position: relative;
 }
 
-#Start button:hover {
-  background-color: lightgrey;
-  transform: translate(5px, 5px);
-  box-shadow: 0 0;
-
-}
-
-#Start a {
-  align-self: center;
-  display: grid;
+nav ul li a {
+  color: white;
   text-decoration: none;
+  padding: 10px 20px;
+  display: block;
 }
+
+nav ul li a:hover {
+  background: #575757;
+  filter: invert();
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #333;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: white;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: #575757;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.contact a {
+  color:yellow;
+}
+
+
+
 
 .content {
-  place-self: center;
-  text-align: center;
-  font-size: 1.5rem;
-  color:#D9D9D9;
-  font-family: 'Inter';
-  margin-left: -30%;
-}
-
-.content h1 {
-  color:white;
-  text-shadow: 3px 3px #575757;
-}
-
-.content h3 {
-  margin-top: -20px;
-  margin-bottom: 10%;
-  font-weight: 400;
-}
-
-
-
-
-
-
-
-@keyframes intro {
-  100% {
-opacity: 1;  
-}
-}
-
-
-@media (prefers-reduced-motion: no-preference) {
-
-  .bg-container {
-    animation: intro linear;
-    animation-timeline: view();
-    animation-range: 30% 50%;
-    animation-fill-mode: forwards;
-  }
-
-  .bg-container::after {
-    animation: intro linear;
-    animation-timeline: view();
-    animation-range: 60% 70%;
-    animation-fill-mode: forwards;
-  }
-
-  .dark-overlay {
-    animation: intro linear;
-    animation-timeline: scroll();
-    animation-range: 20% 70%;
-    animation-fill-mode: forwards;
-  }
-
-  .text-overlay span, .text-overlay a {
-    opacity: 0;
-    animation: intro linear;
-    animation-timeline: view();
-    animation-range: 80% 90%;
-    animation-fill-mode: forwards;
-  }
- 
-
-.text-overlay span:nth-of-type(2) {
-  animation-range: 200% 300%;
-}
-
-.text-overlay span:nth-of-type(3) {
-  animation-range: 350% 390%;
-}
-
-.text-overlay span:nth-of-type(4) {
-  animation-range: 400% 420%;
-}
-
-.text-overlay a {
-  animation-range: 400% 440%;
-}
-
-
-
-}
-
-
-  #Games {
-    background-size:cover;
-    background-repeat: no-repeat;
-    background-image: url(../img/nier.png);
-    background-position: center;
-    height: 450vh;
-    background-attachment: fixed;
-    margin-bottom: 10%;
-  }
-
-  .bg-container {
-    height: inherit;
-    width: 100vw;
-    opacity: 0;
-    padding: 0;
-    margin: 0;
-  }
-
-  .bg-container::before,
-  .bg-container::after {
-      content: '';
-      margin: 0;
-      position: absolute;
-      width: 100vw;
-      height: 400vh;
-      background-size: cover;
-      background-position: center;
-      background-attachment: fixed;
-      transition: opacity 0.3s ease-in-out;
-  }
-
-  .bg-container::before{
-    background-image: url("../img/undertale.jpg");
-     image-rendering: pixelated;
-
-  }
-
-  .bg-container:after {
-    background-image: url("../img/ghostsix.png");
-    image-rendering: pixelated;
-    opacity: 0;
-  }
-
-  .dark-overlay {
-    position: absolute;
-    background-color:rgba(0, 0, 0, 0.537);
-    opacity:0;
-    height:481vh;
-    width:inherit;
-    z-index: 9;
-    display: flex;
-    justify-content: center;
-    place-items: flex-end;
-  }
-
-  .text-overlay {
-    font-family: 'Inter';
-    position: sticky;
-    top:-50%;
-    transform: translateY(80%);
-    color: white;
-    font-size: 2rem;
-    text-align: center;
-    z-index: 10;
-    a {
-      color:red;
-      opacity: 0;
-    }
-    
-    }
-
-
-
-#Art {
-  background-image: url("../img/boll.jpg");
-  height: 420vh;
-  background-attachment: fixed;
-  background-size: cover;
-  background-position: center;
-}
-
-.bg-container:nth-of-type(1)::before{
-  background-image: url("../img/toshi.gif");
-}
-
-.bg-container:nth-of-type(1)::after {
-  background-image: url("../img/funger.png");
-  background-attachment: fixed;
-  background-size: cover;
-  image-rendering: pixelated;
-  opacity: 0;
-}
-
-.bg-container:nth-of-type(1)::after {
-  animation: intro linear;
-  animation-timeline: view();
-  animation-range: 60% 70%;
-  animation-fill-mode: forwards;
-}
-
-h3:not(.subheader) {
-  pointer-events: none;
-  top:50%;
-  margin: 0;
-  position: sticky;
-  z-index:1000;
-  color:white;
-  font-size: 7rem;
-  display: flex;
-  font-family: 'Inria Serif';
-  text-shadow: 2px 2px 5px darkgrey;
-  margin-left: 2%;
-  animation: intro linear;
-  opacity: 0;
-  animation-timeline: view();
-  animation-range: 1% 10%;
-  animation-fill-mode: forwards;
-  text-align: left !important;
-}
-
-
-
-
-
-.art-container {
-  width: 545px;
-  height: 1024px;
-  position: relative;
-  animation: intro linear;
-  opacity: 0;
-  animation-timeline: view();
-  animation-range: 10% 30%;
-  animation-fill-mode: forwards;
-  padding: 0;
-  bottom: 50%;
-}
-
-.background-rectangle {
-  width: 545px;
-  height: 1024px;
-  left: 0;
-  top: 0;
-  position: absolute;
-  background: #0000FF;
-}
-
-#edit-box
-{
-  bottom: 0;
-}
-#editpink {
-  background-color: hotpink !important;
-}
-
-#programpurple {
-  background-color: purple;
-}
-
-.text-group {
-  width: 434px;
-  height: 701px;
-  left: 33px;
-  top: 173px;
-  position: absolute;
-}
-
-.main-text,
-.sub-text,
-.button-text {
-  color: white;
-  font-size: 32px;
-  font-family: Inter;
-  font-weight: 600;
-  word-wrap: break-word;
-  position: absolute;
-}
-
-.main-text {
-  left: 0;
-}
-
-.sub-text {
-  left: 0;
-}
-
-.main-text:nth-child(1) {
-  top: 0;
-}
-
-.sub-text:nth-child(2) {
-  top: 81px;
-}
-
-.sub-text:nth-child(3) {
-  top: 153px;
-}
-
-.sub-text:nth-child(4) {
-  top: 225px;
-}
-
-.sub-text:nth-child(5) {
-  top: 297px;
-}
-
-.sub-text:nth-child(6) {
-  top: 368px;
-}
-
-.sub-text:nth-child(7) {
-  top: 439px;
-}
-
-.main-text:nth-child(8) {
-  top: 663px;
-}
-
-.button-rectangle {
-  width: 338px;
-  height: 72px;
-  left: 33px;
-  top: 703px;
-  position: absolute;
-  background: white;
-  box-shadow: 6px 7px  rgba(255, 255, 255, 0.56);
-  border-radius: 19.5px;
-  color: black;
-  font-size: 40px;
-  font-family: 'Inter';
-  font-weight: bold;
-  text-align: center;
-  padding-top:3% ;
-}
-
-.button-rectangle:hover {
-  box-shadow: 0px 0px;
-  transform: translate(6px, 7px);
-}
-
-
-#Edit {
-  height:435vh;
-  background-color: transparent;
-  display: grid;
-
-}
-
-#edit {
-  height: 400vh;
-  background-color: pink;
-
-}
-
- #myVideo {
-  place-self: center;
-  position: relative;
-  right: 0;
-  top: 0;
-  min-width: 100%; 
-  height: 300vh;
-  margin: 0;
-  margin-top: -20%;
-  padding: 0;
-} 
-
-
-body {background-color: bisque;}
-
-
-#Programming {
+  padding: 20px;
   height:500vh;
-  background-image: url("../img/ghostsix.png");
-  }
-
-#programming {
-  height: 450vh;
-  background-color: blue;
-}
-.pagedoll {
-    position: fixed;
-    bottom:0;
-    z-index: 9999;
-    left:0;
-    margin-left: 1%;
-    color:black;
-    width:150px;
-    
+  background-color: wheat;
 }
 
-.pagedoll img {
-    height: 90px;
+section {
+  background-color: green;
+  padding: 50px 0;
+  border-bottom: 1px solid #ccc;
 }
 
-.pagedoll ul {
+footer {
   background-color: white;
-  border-radius: 10px;
-  overflow: hidden;
-  height: 10px;
-  opacity: 0;
-  transition: height 500ms ease;
-  font-family: 'Inter';
-  a {text-decoration: none; color: black;
-  :hover { text-decoration: underline;}}
-}
-
-.pagedoll li {
-margin: 7px;
-margin-left: -6px;
-margin-top: 8px;
-}
-
-.pagedoll:hover ul {
-  opacity: 1;
-  height:150px;
-}
-
-
-
-.footer {
-  height:20vh;
-  background-color: white;
+  padding:15px;
+  display: grid;
+  grid-template-columns: auto auto;
+  justify-content: space-between;
 }

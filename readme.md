@@ -118,17 +118,12 @@ WD-ProjectName
 | Title | Purpose | Link |
 |-|-|-|
 | Sample Title | Sample purpose would be here like this and this is the example of what it is. | trykolang.com |
-| Figma | Design | https://www.figma.com/design/gemWR2atmCm6plFn3gVOuM/Untitled?node-id=0-1&m=dev&t=X8K8B5iARh44Ed40-1 |
+| Figma | Design |
+| Freepik Star | favicon | https://www.flaticon.com/free-icons/sparkle
+| Google Fonts | Fonts | https://fonts.google.com
 ## Wakatime
 
 <!--START_SECTION:waka-->
 
-```txt
-CSS        8 hrs 48 mins   █████████████▒░░░░░░░░░░░   53.46 %
-HTML       5 hrs 26 mins   ████████▒░░░░░░░░░░░░░░░░   33.08 %
-Markdown   1 hr 5 mins     █▓░░░░░░░░░░░░░░░░░░░░░░░   06.62 %
-Other      1 hr 2 mins     █▓░░░░░░░░░░░░░░░░░░░░░░░   06.32 %
-Git        5 mins          ░░░░░░░░░░░░░░░░░░░░░░░░░   00.51 %
-```
 
 <!--END_SECTION:waka-->

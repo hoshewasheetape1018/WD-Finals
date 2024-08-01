@@ -1,189 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HOME</title>
-    <link rel="stylesheet" href="./assets/css/style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inria+Serif:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> HOME </title>
+  <link rel="icon" type="image/x-icon" href="./assets/img/star.png">
+  <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 <body>
+  <div class="hero">
     <div class="header">
-
-        <div class="navigation">
-            
-          <a href="../Maria/index.html"><div class="navigation-content">HOME</div></a>
-          <a href="../Aster/index.html"><div class="navigation-content">ABOUT ME</div></a>
-          <a href="../Aia/index.html"><div class="navigation-content">ART</div></a>
-          <a href="../Ren/index.html"><div class="navigation-content">EDITING</div></a>
-          <a href="../Scarle/index.html"><div class="navigation-content">PROGRAMMING</div></a>
-        </div>
+      <span> A student. </span>
+      <span>A dreamer. </span>
+      <span>An artist.</span>
     </div>
+    <div class="tab"></div>
+    <div class="tab"></div>
+    <div class="tab"></div>
+  </div>
 
-    <div class="section" id="Start">
-        <div class="avatar"><img src="./assets/img/novaa.png" alt=""><span class="label">This is my original character!</span></div>
-        <div class="content">
-        <h1> Hi, I’m Frankie 💖</h1>
-        <h3 class="subheader">Let’s make something cool!
-             (b ᵔ▽ᵔ)b  </h3>
-        <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"><button>Get in touch -></button></a>
-        </div>
-    </div>
-
-    <div class="spacer">
-        <span>To start off, I am a 
-            BSIT AGD student in
-            FEU Tech.</span>
-            <span>I was  enrolled last year around August 2023.</span>
-            <span>I have a lot of passion in all things that involve both technology and art.</span>
-            <span>... especially video games.</span>
-            <span>such as</span>
-    </div>
-
-    <div class="section" id="Games">
-
-        <div class="dark-overlay"></div>
-            <div class="text-overlay">
-            <h2><span>Nier Automata</span> <br> <br>
-                <span> Undertale<br></span>
-              <span>  <br> and Marutoku games</span> <br><br>
-                <span> and etc. </span><br>
-            <br> <a href=""> <span>click here for more</span></a></h2>
-        </div>
-        <div class="bg-container"></div>
-
-    </div>
-
-    <div class="spacer">
-        <span>Enough about my interests,</span>
-            <span>Let’s get to the good part~</span>
-            <span>Here’s the kind of works I do! </span>
-            <span>In this website, I will showcase <br>
-                my art, Live2D,  and video editing work I have done so far.</span>
-            <span>Starting off with...</span>
-    </div>
-
-    <div class="section" id="Art">
-     <h3>ART</h3>  
-     
-
-
-      <div class="bg-container" id="art"></div>
-
-      
-     <div class="art-container">
-        <div class="background-rectangle"></div>
-        <div class="text-group">
-          <div class="main-text">I do all kinds of art such as</div>
-          <div class="sub-text">Illustrations</div>
-          <div class="sub-text">Youtube thumbnails</div>
-          <div class="sub-text">Pixel Art</div>
-          <div class="sub-text">Fanart</div>
-          <div class="sub-text">Character design</div>
-          <div class="sub-text">Graphics design (kinda)</div>
-          <div class="main-text">Next is</div>
-        </div>
-        <a href=""><div class="button-rectangle">
-       More Examples</div></a>
-      </div>
-      
-
-    </div>
-
-    <div class="section" id="Edit">
-        <h3>Video Editing &<br>
-            Rigging</h3>  
-
-            <video autoplay muted loop id="myVideo">
-          <source src="./assets/vid/aster.mp4" type="video/mp4">
-          Your browser does not support HTML5 video.
-        </video>
-   
-         <div class="bg-container" id="edit">
-
+  <div class="navbar">
+    <nav>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About Me</a></li>
+            <li class="dropdown">
+                <a href="#portfolio" class="dropbtn">Portfolio</a>
+                <div class="dropdown-content">
+                    <a href="#illustration">Illustration</a>
+                    <a href="#edit">Edit</a>
+                    <a href="#webdesign">Web Design</a>
+                  </li>
+                  <li class="contact"><a href="#contact">Contact</a></li>
+              </ul>
+          </nav>
       </div>
 
-        <div class="art-container" id="edit-box">
-          <video autoplay muted loop id="myVideo">
-            <source src="./assets/vid/aster.mp4" type="video/mp4">
-            Your browser does not support HTML5 video.
-          </video>
 
-          <video autoplay muted loop id="myVideo">
-            <source src="./assets/vid/aster.mp4" type="video/mp4">
-            Your browser does not support HTML5 video.
-          </video>
-
-          
-           <div class="background-rectangle" id="editpink"></div>
-           <div class="text-group">
-             <div class="main-text">I do all kinds of art such as</div>
-             <div class="sub-text">Illustrations</div>
-             <div class="sub-text">Youtube thumbnails</div>
-             <div class="sub-text">Pixel Art</div>
-             <div class="sub-text">Fanart</div>
-             <div class="sub-text">Character design</div>
-             <div class="sub-text">Graphics design (kinda)</div>
-             <div class="main-text">Next is</div>
-           </div>
-           <a href=""><div class="button-rectangle">
-          More Examples</div></a>
-         </div>
-
+      <div class="content"></div>
+      <div class="content"></div>
+      <footer>
+        <div class="footer-content">
+          All rights reserved.
         </div>
-
-
-
-        
-         <div class="section" id="Programming">
-          <h3>Programming/<br>
-            Web Design</h3>  
-          
-     
-     
-           <div class="bg-container" id="programming"></div>
-     
-           
-          <div class="art-container">
-             <div class="background-rectangle" id="programpurple"></div>
-             <div class="text-group">
-               <div class="main-text">I do all kinds of art such as</div>
-               <div class="sub-text">Illustrations</div>
-               <div class="sub-text">Youtube thumbnails</div>
-               <div class="sub-text">Pixel Art</div>
-               <div class="sub-text">Fanart</div>
-               <div class="sub-text">Character design</div>
-               <div class="sub-text">Graphics design (kinda)</div>
-               <div class="main-text">Next is</div>
-             </div>
-             <a href=""><div class="button-rectangle">
-            More Examples</div></a>
-           </div>
-           
-     
-         </div>
-     
-         
-   
-       </div>
-
-
-       
-    <div class="pagedoll">
-    <ul>
-       <a href="#Start"><li>Start</li></a>
-       <a href="#Games"><li>Me</li></a>
-       <a href="#Art"><li>Art</li></a>
-       <a href="#Edit"><li>Edit</li></a>
-       <a href="#Programming"><li>Programming</li></a>
-    </ul>
-    <img src="./assets/img/./nova transparent.png" alt="" class="bebi">
-</div>
-
-    <div class="footer">
-    </div>
+        <div class="footer-content">
+          icons
+        </div>
+      </footer>
 </body>
 </html>
