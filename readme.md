@@ -125,5 +125,12 @@ WD-ProjectName
 
 <!--START_SECTION:waka-->
 
+```txt
+CSS        8 hrs 48 mins   █████████████▒░░░░░░░░░░░   53.46 %
+HTML       5 hrs 26 mins   ████████▒░░░░░░░░░░░░░░░░   33.08 %
+Markdown   1 hr 5 mins     █▓░░░░░░░░░░░░░░░░░░░░░░░   06.62 %
+Other      1 hr 2 mins     █▓░░░░░░░░░░░░░░░░░░░░░░░   06.32 %
+Git        5 mins          ░░░░░░░░░░░░░░░░░░░░░░░░░   00.51 %
+```
 
 <!--END_SECTION:waka-->
