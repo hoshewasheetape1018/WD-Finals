@@ -6,14 +6,14 @@
 <div align="center">
   <a href="https://github.com/zyx-0314/">
   <!-- TODO: If you want to add logo or banner you can add it here -->
-    <img src="./assets/img/nyebe_white.png" alt="Nyebe" width="130" height="100">
+    <img src="./pages/edit/assets/img/rabbit.gif" alt="bebi" width="130" height="200">
   </a>
 <!-- TODO: Change Title to the name of the title of your Project -->
-  <h3 align="center">Title</h3>
+  <h3 align="center">Finals for Web Design</h3>
 </div>
 <!-- TODO: Make a short description -->
 <div align="center">
-  Short Description. (Optional)
+Half baked Finals for web design
 </div>
 
 <br />
@@ -61,16 +61,24 @@ Description of the project in details.
 
 Guiding Question:
 - What is the project
+
+A half baked finals design. God took my soul away while making it o7
+
 - Whats the purpose
+
+To showcase design!  (b ᵔ▽ᵔ)b  I can do it if only I had more time oop-
 - What are key components
+supposedly:
+A bootstrap carousel, high interactivity, animation-timeline
 - What technology used and how it is used
+HTML, CSS, JS, Bootstrap, Figma, Anima
 
 ### Key Components
 <!-- TODO: List of Key Components -->
 <!-- The following are just sample -->
-- MultiPage Website/Single Page Website
-- Parallax transition
-- Transactional
+- Half baked landing page
+- Design
+- Some of my works
 
 ### Technology
 <!-- TODO: List of Technology Used -->
@@ -117,10 +125,10 @@ WD-ProjectName
 <!-- TODO: Add References -->
 | Title | Purpose | Link |
 |-|-|-|
-| Sample Title | Sample purpose would be here like this and this is the example of what it is. | trykolang.com |
-| Figma | Design |
-| Freepik Star | favicon | https://www.flaticon.com/free-icons/sparkle
-| Google Fonts | Fonts | https://fonts.google.com
+| Figma | Design | https://www.figma.com/design/Ygh4HkMTmYWeD9kgPxbxOC/Finals-WebDes?node-id=42-290&t=yUxKMyfkMNa7YfxJ-1 |
+| Freepik Star | favicon | https://www.flaticon.com/free-icons/sparkle |
+| Google Fonts | Fonts | https://fonts.google.com |
+| Anima | Prototype to Code | https://projects.animaapp.com |
 ## Wakatime
 
 <!--START_SECTION:waka-->

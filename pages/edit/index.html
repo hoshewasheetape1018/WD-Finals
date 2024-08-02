@@ -1,0 +1,1243 @@
+<html><head><style type="text/css">.turbo-progress-bar {
+    position: fixed;
+    display: block;
+    top: 0;
+    left: 0;
+    height: 3px;
+    background: #0076ff;
+    z-index: 9999;
+    transition:
+      width 300ms ease-out,
+      opacity 150ms 150ms ease-in;
+    transform: translate3d(0, 0, 0);
+  }
+  </style><style id="st_globalStyles">
+  /* MEDIA QUERIES */
+  .anima-desktop-only {
+    @media (max-width: 768px) {
+      display: none !important;
+    }
+  }
+  
+  /* SCROLLBAR */
+  
+  [dark-scroll]::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  
+  [dark-scroll]::-webkit-scrollbar-track-piece {
+    background-color: #2b2b2b;
+    border: 1px solid #1d1d1d;
+  }
+  
+  [dark-scroll]::-webkit-scrollbar-thumb {
+    height: 10px;
+    background-color: #4d4d4d;
+  }
+  [dark-scroll]::-webkit-scrollbar-thumb:hover {
+    background-color: #5a5a5a;
+  }
+  
+  /* LOAD PROGRESS */
+  
+  .turbolinks-progress-bar {
+    height: 3px;
+    background-color: #ff6250;
+  }
+  
+  /* GROUPING */
+  
+  [data-id].ui-selecting {
+    box-shadow: inset 0 0 0 1px #4285f4 !important;
+  }
+  [data-id].ui-selected {
+    box-shadow: inset 0 0 0 1px #4285f4 !important;
+  }
+  
+  /* CURSOR */
+  
+  body[mode='comments'] * {
+    cursor: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAiIGhlaWdodD0iMzAiIHZpZXdCb3g9IjAgMCAzMCAzMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik00LjkxNjQ4IDIzLjQxMDlDNS40OTE1MyAyMi45ODg3IDUuOTMxNzkgMjIuMzkzNSA2LjIzMjggMjEuNjQwN0M0Ljc5MDY5IDE5LjczODMgNCAxNy4zOTMzIDQgMTQuOTk3NUM0IDguOTM0MSA4LjkzMjgyIDQgMTUuMDAyMiA0QzIxLjA3MTcgNCAyNiA4LjkzOTE5IDI2IDE1LjAwMjVDMjYgMjEuMDY1OSAyMS4wNjcyIDI2IDE0Ljk5NzggMjZDMTIuOTg5NiAyNiAxMS4wMzUzIDI1LjQ1NTcgOS4zMjM2NyAyNC40MjMxQzguNDI5NjUgMjQuOTU3MiA3LjQxNDM0IDI1LjIyNjggNi4zMDAxOCAyNS4yMjY4QzUuOTU0MjYgMjUuMjI2OCA1LjU5OTM1IDI1LjIwMTQgNS4yNTM0MiAyNS4xNDU0QzQuOTAzIDI1LjA4OTUgNC42Mjg5NiAyNC44MDQ2IDQuNTUyNTggMjQuNDE4QzQuNDc2MjEgMjQuMDI2NCA0LjYxOTk3IDIzLjYyOTYgNC45MTY0OCAyMy40MTA5WiIgZmlsbD0iI0ZGNjI1MCIvPgo8L3N2Zz4K')
+        0 24,
+      auto !important;
+  }
+  
+  body[mode='code'] [data-id]:not(.hidden) {
+    cursor: default;
+  }
+  
+  /* default node state */
+  
+  body[mode='code'] [data-id]:not(.hidden), body[mode='comments'] [data-id]:not(.hidden) {
+    pointer-events: all;
+  }
+  
+  /* is_image */
+  
+  body[mode='code'] [data-id].is_image [data-id], body[mode='comments'] [data-id].is_image [data-id] {
+    pointer-events: none !important;
+  }
+  
+  /* without a data-id or ignored */
+  
+  [data-id].ignore,body[mode='code'] *:not([data-id]) {
+    pointer-events: none !important;
+  }
+  /* disable transforms for ignored elements */
+  
+  
+  body[mode='code'] [data-id]:hover{
+    transform: none !important;
+  }
+  
+  /* ANIMA BUTTONS */
+  .an-button {
+    position: relative;
+    height: 28px;
+    padding: 0 20px;
+    font-size: 14px;
+    border-radius: 4px;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    vertical-align: middle;
+    white-space: nowrap;
+    transition-property: all;
+    transition-duration: 100ms;
+    appearance: none;
+    cursor: pointer;
+    user-select: none;
+    transition: all 0.2s ease;
+    border-width: 0;
+  }
+  
+  .an-button > div {
+    width: 100%;
+  }
+  
+  .an-button.primary {
+    background: #ff6250;
+    color: #ffffff;
+  }
+  
+  .an-button.primary:hover:not(:disabled) {
+    background: #e2412e;
+  }
+  
+  .an-button.secondary {
+    background: transparent;
+    border: 1px solid #ff6250;
+    color: #ff6250;
+  }
+  
+  .an-button.secondary:hover:not(:disabled) {
+    color: #ffffff;
+    background: #ff6250;
+  }
+  
+  .an-button.rounded {
+    border-radius: 100px;
+  }
+  
+  .an-button:disabled {
+    opacity: 0.5;
+  }
+  
+  .an-button:disabled {
+    cursor: default;
+  }
+  
+  .an-button:active,
+  .an-button:focus {
+    outline: none;
+  }
+  
+  </style><meta charset="utf-8"><meta name="viewport" content="width=1440, maximum-scale=1.0"><link rel="shortcut icon" type="image/png" href="https://animaproject.s3.amazonaws.com/home/favicon.png"><meta name="og:type" content="website"><meta name="twitter:card" content="photo"><script id="anima-load-script" src="load.js"></script><script id="anima-hotspots-script" src="hotspots.js"></script><style id="hotspots-styles">
+      .hotspot {
+        position: absolute;
+        border: 1px solid #2a9fd8;
+        background: rgba(0, 173, 255, 0.54);
+        opacity: 0;
+        z-index: -1;
+        pointer-events:none;
+      }
+    </style><script id="s_turbo" src="https://animaapp.s3.amazonaws.com/static/turbo.es2017-umd.js"></script><script id="anima-overrides-script" src="overrides.js"></script><script src="https://animaapp.s3.amazonaws.com/js/timeline.js"></script><style>
+  @import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
+  
+  @import url("https://fonts.googleapis.com/css?family=Playfair+Display:700|Inter:400,700|Josefin+Sans:400");
+  
+  /* The following line is used to measure usage of this code. You can remove it if you want. */
+  @import url("https://px.animaapp.com/66ac266c7b252404617668e3.66ac266c7b252404617668e6.lc0zASL.hch.png");
+  
+  
+  .screen textarea:focus,
+  .screen input:focus {
+    outline: none;
+  }
+  
+  .screen * {
+    -webkit-font-smoothing: antialiased;
+    box-sizing: border-box;
+  }
+  
+  .screen div {
+    -webkit-text-size-adjust: none;
+  }
+  
+  .component-wrapper a {
+    display: contents;
+    pointer-events: auto;
+    text-decoration: none;
+  }
+  
+  .component-wrapper * {
+    -webkit-font-smoothing: antialiased;
+    box-sizing: border-box;
+    pointer-events: none;
+  }
+  
+  .component-wrapper a *,
+  .component-wrapper input,
+  .component-wrapper video,
+  .component-wrapper iframe {
+    pointer-events: auto;
+  }
+  
+  .component-wrapper.not-ready,
+  .component-wrapper.not-ready * {
+    visibility: hidden !important;
+  }
+  
+  .screen a {
+    display: contents;
+    text-decoration: none;
+  }
+  
+  .full-width-a {
+    width: 100%;
+  }
+  
+  .full-height-a {
+    height: 100%;
+  }
+  
+  .container-center-vertical {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    pointer-events: none;
+  }
+  
+  .container-center-vertical > * {
+    flex-shrink: 0;
+    pointer-events: auto;
+  }
+  
+  .container-center-horizontal {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    pointer-events: none;
+    width: 100%;
+  }
+  
+  .container-center-horizontal > * {
+    flex-shrink: 0;
+    pointer-events: auto;
+  }
+  
+  .auto-animated div {
+    --z-index: -1;
+    opacity: 0;
+    position: absolute;
+  }
+  
+  .auto-animated input {
+    --z-index: -1;
+    opacity: 0;
+    position: absolute;
+  }
+  
+  .auto-animated .container-center-vertical,
+  .auto-animated .container-center-horizontal {
+    opacity: 1;
+  }
+  
+  .overlay-base {
+    display: none;
+    height: 100%;
+    opacity: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+  }
+  
+  .overlay-base.animate-appear {
+    align-items: center;
+    animation: reveal 0.3s ease-in-out 1 normal forwards;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    opacity: 0;
+  }
+  
+  .overlay-base.animate-disappear {
+    animation: reveal 0.3s ease-in-out 1 reverse forwards;
+    display: block;
+    opacity: 1;
+    pointer-events: none;
+  }
+  
+  .overlay-base.animate-disappear * {
+    pointer-events: none;
+  }
+  
+  @keyframes reveal {
+    from { opacity: 0 }
+   to { opacity: 1 }
+  }
+  
+  .animate-nodelay {
+    animation-delay: 0s;
+  }
+  
+  .align-self-flex-start {
+    align-self: flex-start;
+  }
+  
+  .align-self-flex-end {
+    align-self: flex-end;
+  }
+  
+  .align-self-flex-center {
+    align-self: flex-center;
+  }
+  
+  .valign-text-middle {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .valign-text-bottom {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+  
+  input:focus {
+    outline: none;
+  }
+  
+  .listeners-active,
+  .listeners-active * {
+    pointer-events: auto;
+  }
+  
+  .hidden,
+  .hidden * {
+    pointer-events: none;
+    visibility: hidden;
+  }
+  
+  .smart-layers-pointers,
+  .smart-layers-pointers * {
+    pointer-events: auto;
+    visibility: visible;
+  }
+  
+  .listeners-active-click,
+  .listeners-active-click * {
+    cursor: pointer;
+  }
+  
+  * {
+    box-sizing: border-box;
+  }
+  :root { 
+    --black: #000000;
+    --white: #ffffff;
+   
+    --font-size-l: 24px;
+    --font-size-m: 20px;
+    --font-size-xl: 30px;
+    --font-size-xxl: 32px;
+    --font-size-xxxl: 48px;
+    --font-size-xxxxl: 96px;
+    --font-size-xxxxxl: 100px;
+   
+    --font-family-inter: "Inter", Helvetica;
+    --font-family-josefin_sans: "Josefin Sans", Helvetica;
+    --font-family-playfair_display: "Playfair Display", Helvetica;
+  }
+  .inter-normal-white-30px {
+    color: var(--white);
+    font-family: var(--font-family-inter);
+    font-size: var(--font-size-xl);
+    font-style: normal;
+    font-weight: 400;
+  }
+  
+  .inter-normal-black-20px {
+    color: var(--black);
+    font-family: var(--font-family-inter);
+    font-size: var(--font-size-m);
+    font-style: normal;
+    font-weight: 400;
+  }
+  
+ 
+  
+  
+  /* screen - desktop-6 */
+  
+  .desktop-6 {
+    background-color: var(--white);
+    margin: 0px;
+    min-height: 4005px;
+    min-width: 1440px;
+    overflow: hidden;
+    overflow-x: hidden;
+    position: relative;
+    width: 100%;
+  }
+  
+  .desktop-6 .comp-2u-2-ZnKzSm {
+    background-color: transparent;
+    height: 1340px;
+    left: -277px;
+    object-fit: cover;
+    position: absolute;
+    top: -88px;
+    width: 1981px;
+  }
+  
+  .desktop-6 .image-6-ZnKzSm {
+    background-color: transparent;
+    height: 887px;
+    left: -85px;
+    object-fit: cover;
+    position: absolute;
+    top: 1992px;
+    width: 1525px;
+  }
+  
+  .desktop-6 .comp-2u-1-ZnKzSm {
+    background-color: transparent;
+    height: 1053px;
+    left: calc(50.00% - 719px);
+    object-fit: cover;
+    position: absolute;
+    top: 0px;
+    width: 1439px;
+  }
+  
+  .desktop-6 .mv-cover-out-now-ZnKzSm {
+    background-color: transparent;
+    color: var(--black);
+    font-family: var(--font-family-playfair_display);
+    font-size: var(--font-size-xxxxxl);
+    font-style: normal;
+    font-weight: 700;
+    height: auto;
+    left: calc(50.00% - 642px);
+    letter-spacing: 0.00px;
+    line-height: normal;
+    position: absolute;
+    text-align: center;
+    text-shadow: 0px 4px 4px #00000040;
+    top: 819px;
+    width: 1283px;
+  }
+  
+  .desktop-6 .group-3-ZnKzSm {
+    background-color: transparent;
+    height: 33px;
+    left: 371px;
+    mix-blend-mode: exclusion;
+    position: absolute;
+    top: 50px;
+    width: 651px;
+  }
+  
+  .desktop-6 .home-qqmt66 {
+    background-color: transparent;
+    height: auto;
+    left: 0px;
+    letter-spacing: 0.00px;
+    line-height: normal;
+    position: absolute;
+    text-align: center;
+    top: 2px;
+    white-space: nowrap;
+    width: 89px;
+  }
+  
+  .desktop-6 .about-me-qqmt66 {
+    background-color: transparent;
+    height: auto;
+    left: 139px;
+    letter-spacing: 0.00px;
+    line-height: normal;
+    position: absolute;
+    text-align: center;
+    top: 0px;
+    white-space: nowrap;
+    width: 152px;
+  }
+  
+  .desktop-6 .portfolio-qqmt66 {
+    background-color: transparent;
+    height: auto;
+    left: 341px;
+    letter-spacing: 0.00px;
+    line-height: normal;
+    position: absolute;
+    text-align: center;
+    top: 0px;
+    white-space: nowrap;
+    width: 126px;
+  }
+  
+  .desktop-6 .contact-qqmt66 {
+    background-color: transparent;
+    color: #ff0000;
+    font-family: var(--font-family-inter);
+    font-size: var(--font-size-xl);
+    font-style: normal;
+    font-weight: 400;
+    height: auto;
+    left: 517px;
+    letter-spacing: 0.00px;
+    line-height: normal;
+    position: absolute;
+    text-align: center;
+    top: 0px;
+    white-space: nowrap;
+    width: 126px;
+  }
+  
+  .desktop-6 .wireframe-1-ZnKzSm {
+    background-color: var(--black);
+    height: 1024px;
+    left: 1px;
+    overflow: hidden;
+    position: absolute;
+    top: 1056px;
+    width: 1440px;
+  }
+  
+  .desktop-6 .rectangle-17-665vQG {
+    background-color: #40a6ff;
+    border: 5px solid;
+    border-color: #00529a;
+    border-radius: 10px;
+    box-shadow: 0px 0px 29.399999618530273px 2px #40f3ff;
+    height: 818px;
+    left: calc(50.00% - 682px);
+    mix-blend-mode: hard-light;
+    position: absolute;
+    top: 80px;
+    width: 1365px;
+  }
+  
+  .desktop-6 .image-10-665vQG {
+    background-color: transparent;
+    height: 347px;
+    left: 669px;
+    position: absolute;
+    top: 208px;
+    width: 615px;
+  }
+  
+  .desktop-6 .group-26-665vQG {
+    background-color: transparent;
+    height: 708px;
+    left: 159px;
+    position: absolute;
+    top: 135px;
+    width: 379px;
+  }
+  
+  .desktop-6 .image-7-2vVRxp {
+    height: 214px;
+    left: 0px;
+    top: 0px;
+    width: 379px;
+  }
+  
+  .desktop-6 .image-8-2vVRxp {
+    background-color: transparent;
+    height: 214px;
+    left: 0px;
+    position: absolute;
+    top: 247px;
+    width: 379px;
+  }
+  
+  .desktop-6 .image-9-2vVRxp {
+    background-color: transparent;
+    height: 214px;
+    left: 0px;
+    position: absolute;
+    top: 494px;
+    width: 379px;
+  }
+  
+  .desktop-6 .a-fan-cover-for-aste-665vQG {
+    background-color: transparent;
+    height: auto;
+    left: 669px;
+    letter-spacing: 0.00px;
+    line-height: 26px;
+    position: absolute;
+    text-align: left;
+    top: 656px;
+    width: 615px;
+  }
+  
+  .desktop-6 .fan-cover-anima-by-arcadians-665vQG {
+    background-color: transparent;
+    color: var(--black);
+    cursor: pointer;
+    font-family: var(--font-family-inter);
+    font-size: var(--font-size-xxl);
+    font-style: normal;
+    font-weight: 700;
+    height: auto;
+    left: 669px;
+    letter-spacing: 0.00px;
+    line-height: normal;
+    position: absolute;
+    text-align: left;
+    text-decoration: underline;
+    top: 608px;
+    width: 570px;
+  }
+  
+  .desktop-6 .group-23-ZnKzSm {
+    height: 60px;
+    left: 600px;
+    top: 960px;
+    width: 242px;
+  }
+  
+  .desktop-6 .rectangle-13-e2N4T4 {
+    background-color: var(--black);
+    border-radius: 40px;
+    height: 60px;
+    left: 0px;
+    position: absolute;
+    top: 0px;
+    width: 240px;
+  }
+  
+  .desktop-6 .watch-now-e2N4T4 {
+    background-color: transparent;
+    color: var(--white);
+    font-family: var(--font-family-josefin_sans);
+    font-size: var(--font-size-l);
+    font-style: normal;
+    font-weight: 400;
+    height: auto;
+    left: calc(50.00% - 104px);
+    letter-spacing: 0.00px;
+    line-height: normal;
+    position: absolute;
+    text-align: center;
+    top: 21px;
+    white-space: nowrap;
+    width: 206px;
+  }
+  
+  .desktop-6 .wireframe-2-ZnKzSm {
+    background-color: #E62DB9;
+    height: 1126px;
+    left: 1px;
+    overflow: hidden;
+    position: absolute;
+    top: 2879px;
+    width: 1440px;
+  }
+  
+  .desktop-6 .rectangle-15-7iT7Ua {
+    background-color: #E62DB9;
+    height: 1024px;
+    left: 732px;
+    position: absolute;
+    top: 0px;
+    width: 707px;
+  }
+  
+  .desktop-6 .group-23-7iT7Ua {
+    height: 331px;
+    left: 66px;
+    top: 522px;
+    width: 581px;
+  }
+  
+  .desktop-6 .rectangle-16-DMkTix {
+    background-color: var(--white);
+    height: 318px;
+    left: 0px;
+    position: absolute;
+    top: 13px;
+    width: 579px;
+  }
+  
+  .desktop-6 .title-DMkTix {
+    background-color: transparent;
+    color: var(--black);
+    font-family: var(--font-family-playfair_display);
+    font-size: 120px;
+    font-style: normal;
+    font-weight: 700;
+    height: auto;
+    left: 74px;
+    letter-spacing: 0.00px;
+    line-height: normal;
+    position: absolute;
+    text-align: center;
+    top: 0px;
+    width: 429px;
+  }
+  
+  .desktop-6 .an-animation-collabo-7iT7Ua {
+    background-color: transparent;
+    height: auto;
+    left: 66px;
+    letter-spacing: 0.00px;
+    line-height: 40px;
+    position: absolute;
+    text-align: left;
+    top: 343px;
+    width: 615px;
+  }
+  
+  .desktop-6 .rabbit-hole-deco27-7iT7Ua {
+    background-color: transparent;
+    color: var(--black);
+    font-family: var(--font-family-inter);
+    font-size: var(--font-size-xxxl);
+    font-style: normal;
+    font-weight: 700;
+    height: auto;
+    left: 66px;
+    letter-spacing: 0.00px;
+    line-height: normal;
+    position: absolute;
+    text-align: left;
+    top: 275px;
+    width: 547px;
+  }
+  
+  .desktop-6 .image-7-7iT7Ua {
+    height: 832px;
+    left: 811px;
+    object-fit: cover;
+    top: 119px;
+    width: 549px;
+  }
+  
+  .desktop-6 .group-24-7iT7Ua {
+    background-color: transparent;
+    height: 205px;
+    left: calc(50.00% - 999px);
+    position: absolute;
+    top: -3px;
+    width: 2609px;
+  }
+  
+  .desktop-6 .group-25-7iT7Ua {
+    background-color: transparent;
+    height: 205px;
+    left: calc(50.00% - 999px);
+    position: absolute;
+    top: 921px;
+    width: 2609px;
+  }
+  
+  .desktop-6 .original-by-channelcastation-7iT7Ua {
+    background-color: transparent;
+    height: auto;
+    left: 1086px;
+    letter-spacing: 0.00px;
+    line-height: normal;
+    position: absolute;
+    text-align: left;
+    top: 883px;
+    width: 340px;
+  }
+  
+  .desktop-6 .frame-2-7iT7Ua {
+    background-color: transparent;
+    height: 86px;
+    left: 1387px;
+    position: absolute;
+    top: 458px;
+    width: 22px;
+  }
+  
+  .desktop-6 .ellipse-3-0PQ8eW {
+    background-color: var(--black);
+    border-radius: 11px;
+    height: 22px;
+    left: 0px;
+    position: absolute;
+    top: 0px;
+    width: 22px;
+  }
+  
+  .desktop-6 .ellipse-4-0PQ8eW {
+    background-color: var(--white);
+    border-radius: 11px;
+    height: 22px;
+    left: 0px;
+    position: absolute;
+    top: 32px;
+    width: 22px;
+  }
+  
+  .desktop-6 .ellipse-5-0PQ8eW {
+    background-color: var(--white);
+    border-radius: 11px;
+    height: 22px;
+    left: 0px;
+    position: absolute;
+    top: 64px;
+    width: 22px;
+  }
+  
+  .desktop-6 .group-23 {
+    background-color: transparent;
+    position: absolute;
+  }
+  
+  .desktop-6 .image-7 {
+    background-color: transparent;
+    position: absolute;
+  }
+  
+  .desktop-6 .rabbit-hole-rabbit-hole-rabbit-hole {
+    background-color: transparent;
+    color: var(--black);
+    font-family: var(--font-family-playfair_display);
+    font-size: var(--font-size-xxxxl);
+    font-style: normal;
+    font-weight: 700;
+    height: auto;
+    left: 0px;
+    letter-spacing: 0.00px;
+    line-height: normal;
+    position: absolute;
+    text-align: left;
+    top: 35px;
+    white-space: nowrap;
+    width: 2607px;
+  }
+  
+  .desktop-6 .rectangle-18 {
+    background-color: var(--white);
+    height: 205px;
+    left: calc(50.00% - 1026px);
+    position: absolute;
+    top: 0px;
+    width: 1440px;
+  }
+  </style><script id="anime-js-script" src="https://cdn.jsdelivr.net/npm/animejs@3.1.0/lib/anime.min.js" integrity="sha256-98Q574VkbV+PkxXCKSgL6jVq9mrVbS7uCdA+vt0sLS8=" crossorigin="anonymous"></script><script id="imgloaded-js-script" src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script><style type="text/css">:root [href^="//mage98rquewz.com/"], :root [href^="//x4pollyxxpush.com/"], :root span[id^="ezoic-pub-ad-placeholder-"], :root ins.adsbygoogle[data-ad-slot], :root guj-ad, :root gpt-ad, :root div[id^="zergnet-widget"], :root div[id^="vuukle-ad-"], :root div[id^="taboola-stream-"], :root div[id^="sticky_ad_"], :root div[id^="st"][style^="z-index: 999999999;"], :root div[id^="pa_sticky_ad_box_middle_"], :root div[id^="optidigital-adslot"], :root div[id^="gpt_ad_"], :root div[id^="ezoic-pub-ad-"], :root div[id^="dfp-ad-"], :root div[id^="crt-"][style], :root div[id^="adspot-"], :root div[id^="adrotate_widgets-"], :root ps-connatix-module, :root div[id^="ad_position_"], :root div[id^="ad-div-"], :root div[id*="ScriptRoot"], :root div[id*="MarketGid"], :root div[data-native_ad], :root div[data-native-ad], :root div[data-id-advertdfpconf], :root hl-adsense, :root div[data-contentexchange-widget], :root div[data-alias="300x250 Ad 2"], :root div[data-adzone], :root div[data-adunit-path], :root div[data-adname], :root div[data-ad-wrapper], :root div[data-ad-placeholder], :root div[class^="native-ad-"], :root div[data-dfp-id], :root div[class^="kiwi-ad-wrapper"], :root div[aria-label="Ads"], :root display-ads, :root display-ad-component, :root atf-ad-slot, :root aside[id^="adrotate_widgets-"], :root ark-top-ad, :root amp-fx-flying-carpet, :root amp-embed[type="taboola"], :root amp-connatix-player, :root amp-ad-custom, :root amp-ad, :root div[id^="google_dfp_"], :root ad-slot, :root ad-shield-ads, :root a[style="width:100%;height:100%;z-index:10000000000000000;position:absolute;top:0;left:0;"], :root a[onmousedown^="this.href='https://paid.outbrain.com/network/redir?"][target="_blank"] + .ob_source, :root a[onmousedown^="this.href='http://paid.outbrain.com/network/redir?"][target="_blank"], :root a[href^="https://www.sugarinstant.com/?partner_id="], :root a[href^="https://www.purevpn.com/"][href*="&utm_source=aff-"], :root a[href^="https://www.privateinternetaccess.com/"] > img, :root a[href^="https://www.onlineusershielder.com/"], :root a[href^="https://www.nudeidols.com/cams/"], :root a[href^="https://financeads.net/tc.php?"], :root a[href^="https://www.mrskin.com/tour"], :root a[href^="https://www.kingsoffetish.com/tour?partner_id="], :root a[href^="https://www.infowarsstore.com/"] > img, :root a[href^="https://www.highperformancecpmgate.com/"], :root a[href^="https://www.highcpmrevenuenetwork.com/"], :root a[href^="https://lnkxt.bannerator.com/"], :root a[href^="https://www.geekbuying.com/dynamic-ads/"], :root a[href^="https://www.friendlyduck.com/AF_"], :root a[href^="https://www.financeads.net/tc.php?"], :root [href^="https://www.herbanomic.com/"] > img, :root a[href^="https://maymooth-stopic.com/"], :root a[href^="https://www.dql2clk.com/"], :root a[href^="https://www.nutaku.net/signup/landing/"], :root a[href^="https://www.dating-finder.com/signup/?ai_d="], :root a[href^="https://explore-site.com/"], :root a[href^="https://www.brazzersnetwork.com/landing/"], :root a[href^="https://www.adxsrve.com/"], :root [data-template-type="nativead"], :root a[href^="https://www.endorico.com/Smartlink/"], :root a[href^="https://www.adultempire.com/"][href*="?partner_id="], :root a[href^="https://voluum.prom-xcams.com/"], :root div[data-type="_mgwidget"]:not(.eyeo), :root a[href^="https://twinrdsrv.com/"], :root a[href^="https://trk.nfl-online-streams.club/"], :root a[href^="https://tracking.avapartner.com/"], :root a[href^="https://track.wg-aff.com"], :root a[href^="https://track.ultravpn.com/"], :root a[href^="https://track.afcpatrk.com/"], :root a[href^="https://torguard.net/aff.php"] > img, :root [data-identity="adhesive-ad"], :root a[href^="https://tc.tradetracker.net/"] > img, :root a[href^="https://tatrck.com/"], :root a[href^="https://click.candyoffers.com/"], :root [href^="https://zstacklife.com/"] img, :root a[href^="https://t.aslnk.link/"], :root a[href^="https://t.ajrkm3.com/"], :root a[href^="https://t.adating.link/"], :root a[href^="https://safesurfingtoday.com/"][href*="?skip="], :root a[href^="https://land.brazzersnetwork.com/landing/"], :root a[href^="https://t.acam.link/"], :root a[href*="//daichoho.com/"], :root a[href^="https://syndication.optimizesrv.com/"], :root a[href^="https://go.trackitalltheway.com/"], :root [href^="https://track.fiverr.com/visit/"] > img, :root a[href^="https://syndication.exoclick.com/"], :root a[href^="https://syndication.dynsrvtbg.com/"], :root div[data-alias="300x250 Ad 1"], :root a[href^="https://syndicate.contentsserved.com/"], :root a[href^="https://svb-analytics.trackerrr.com/"], :root a[href^="https://streamate.com/landing/click/"], :root a[href^="https://ad.doubleclick.net/"], :root a[href^="https://static.fleshlight.com/images/banners/"], :root a[href^="https://slkmis.com/"], :root bottomadblock, :root a[href^="https://s.zlinkd.com/"], :root a[href^="https://s.zlink3.com/"], :root a[href^="https://www.mrskin.com/account/"], :root a[href^="https://s.optzsrv.com/"], :root a[href^="https://random-affiliate.atimaze.com/"], :root a[href^="https://quotationfirearmrevision.com/"], :root a[href^="https://pubads.g.doubleclick.net/"], :root a[href^="https://ak.oalsauwy.net/"], :root a[href^="https://softwa.cfd/"], :root a[href^="https://play1ad.shop/"], :root a[href^="https://prf.hn/click/"][href*="/camref:"] > img, :root a[href^="https://www.dating-finder.com/?ai_d="], :root a[href^="https://serve.awmdelivery.com/"], :root a[href^="https://prf.hn/click/"][href*="/adref:"] > img, :root app-ad, :root [href^="https://ap.octopuspop.com/click/"] > img, :root a[href^="https://postback1win.com/"], :root a[href^="https://a.adtng.com/"], :root a[href^="https://playnano.online/offerwalls/?ref="], :root a[href^="https://mmwebhandler.aff-online.com/"], :root a[href^="https://www.bet365.com/"][href*="affiliate="], :root a[href^="https://pb-track.com/"], :root a[href^="https://pb-front.com/"], :root a[href^="https://paid.outbrain.com/network/redir?"], :root a[href^="https://ngineet.cfd/"], :root a[href^="https://upsups.click/"], :root a[href^="https://ndt5.net/"], :root a[href^="http://eighteenderived.com/"], :root a[href^="https://natour.naughtyamerica.com/track/"], :root a[href^="https://mediaserver.entainpartners.com/renderBanner.do?"], :root a[href^="https://m.do.co/c/"] > img, :root [data-ad-name], :root a[href^="https://loboclick.com/"], :root .nya-slot[style], :root a[href^="https://a.bestcontentweb.top/"], :root a[href^="https://lobimax.com/"], :root a[href^="https://lead1.pl/"], :root a[href^="https://landing1.brazzersnetwork.com"], :root a[href^="https://landing.brazzersnetwork.com/"], :root a[href^="https://join.virtuallust3d.com/"], :root a[href^="https://kiksajex.com/"], :root a[href^="https://juicyads.in/"], :root a[href^="https://www.mypornstarcams.com/landing/click/"], :root a[href^="https://snowdayonline.xyz/"], :root a[href^="https://mediaserver.gvcaffiliates.com/renderBanner.do?"], :root a[href^="https://join.dreamsexworld.com/"], :root a[href^="https://jaxofuna.com/"], :root a[href^="https://itubego.com/video-downloader/?affid="], :root a[href^="https://italarizege.xyz/"], :root a[href^="https://iqbroker.com/"][href*="?aff="], :root a[href^="https://hot-growngames.life/"], :root a[href^="https://golinks.work/"], :root a[href^="https://go.xxxvjmp.com/"], :root [class^="tile-picker__CitrusBannerContainer-sc-"], :root a[href^="https://go.xxxiijmp.com"], :root a[href^="https://go.xtbaffiliates.com/"], :root .OUTBRAIN[data-widget-id^="FMS_REELD_"], :root [data-role="tile-ads-module"], :root a[href^="https://go.xlviirdr.com"], :root a[href^="https://go.xlviiirdr.com"], :root a[href^="https://ismlks.com/"], :root [href^="https://www.mypillow.com/"] > img, :root a[href^="https://go.xlirdr.com"], :root [data-css-class="dfp-inarticle"], :root a[href^="https://l.hyenadata.com/"], :root a[href^="https://go.tmrjmp.com"], :root a[href^="https://go.skinstrip.net"][href*="?campaignId="], :root a[href^="https://zirdough.net/"], :root a[href^="https://s.deltraff.com/"], :root a[href^="https://go.markets.com/visit/?bta="], :root a[href^="https://billing.purevpn.com/aff.php"] > img, :root a[href^="https://go.hpyrdr.com/"], :root a[href^="https://lijavaxa.com/"], :root a[href^="https://go.goaserv.com/"], :root a[href^="https://t.hrtye.com/"], :root a[href^="https://go.etoro.com/"] > img, :root a[href^="https://go.dmzjmp.com"], :root div[class^="Display_displayAd"], :root a[href^="https://www.bang.com/?aff="], :root #mgb-container > #mgb, :root a[href^="https://go.admjmp.com"], :root div[id^="div-gpt-"], :root a[href^="https://gml-grp.com/"], :root a[href^="https://get.surfshark.net/aff_c?"][href*="&aff_id="] > img, :root a[href^="https://www.adskeeper.com"], :root [href^="https://www.reimageplus.com/"], :root a[data-redirect^="https://paid.outbrain.com/network/redir?"], :root [href^="https://clicks.affstrack.com/"] > img, :root a[href^="https://ak.hauchiwu.com/"], :root a[href^="https://engine.phn.doublepimp.com/"], :root a[href^="https://engine.blueistheneworanges.com/"], :root a[href^="https://eergortu.net/"], :root a[href^="https://dl-protect.net/"], :root a[href^="https://rixofa.com/"], :root a[href^="https://disobediencecalculatormaiden.com/"], :root a[href^="https://datingoffers30.info/"], :root a[href*=".foxqck.com/"], :root a[href^="https://ctosrd.com/"], :root div[id*="ScriptRoot"]:not(.eyeo), :root a[href^="https://clixtrac.com/"], :root [href^="https://noqreport.com/"] > img, :root a[href^="https://clicks.pipaffiliates.com/"], :root a[href^="https://datewhisper.life/"], :root a[href^="https://get-link.xyz/"], :root a[href^="https://click.linksynergy.com/fs-bin/"] > img, :root a[href^="https://combodef.com/"], :root AD-TRIPLE-BOX, :root a[href^="https://click.hoolig.app/"], :root a[href^="https://track.totalav.com/"], :root img[src^="https://images.purevpnaffiliates.com"], :root a[href^="https://porntubemate.com/"], :root a[href^="https://clickadilla.com/"], :root a[href^="https://click.dtiserv2.com/"], :root a[href^="https://go.xlvirdr.com"], :root a[href^="http://www.iyalc.com/"], :root a[href^="https://claring-loccelkin.com/"], :root a[href^="https://s.ma3ion.com/"], :root a[href^="https://cams.imagetwist.com/in/?track="], :root a[href^="https://bongacams2.com/track?"], :root a[href^="https://t.ajrkm1.com/"], :root [href="https://masstortfinancing.com"] img, :root a[href^="https://bongacams10.com/track?"], :root a[href^="https://www.sheetmusicplus.com/"][href*="?aff_id="], :root a[href^="https://bngpt.com/"], :root a[href^="https://black77854.com/"], :root a[target="_blank"][onmousedown="this.href^='http://paid.outbrain.com/network/redir?"], :root a[href^="https://banners.livepartners.com/"], :root a[href^="http://revolvemockerycopper.com/"], :root a[href^="https://awptjmp.com/"], :root a[href^="https://join.sexworld3d.com/track/"], :root a[href^="https://intenseaffiliates.com/redirect/"], :root a[href^="https://aweptjmp.com/"], :root [class^="s2nPlayer"], :root a[href^="https://chaturbate.jjgirls.com/?track="], :root a[href^="https://ausoafab.net/"], :root a[href^="https://activate-game.com/"], :root .scroll-fixable.rail-right > .deals-rail, :root [data-wpas-zoneid], :root a[href^="https://a2.adform.net/"], :root a[href^="https://auesk.cfd/"], :root a[href^="https://ak.psaltauw.net/"], :root a[href^="https://adclick.g.doubleclick.net/"], :root a[href^="https://bc.game/"], :root a[href^="https://a.bestcontentoperation.top/"], :root a[href^="https://adultfriendfinder.com/go/"], :root a[href^="https://ads.planetwin365affiliate.com/"], :root a[href^="https://ads.leovegas.com/"], :root a[href^="https://a.candyai.love/"], :root [data-m-ad-id], :root a[href^="https://a-ads.com/"], :root div[id^="rc-widget-"], :root a[href^="http://eslp34af.click/"], :root a[href^="https://turnstileunavailablesite.com/"], :root a[href^="https://chaturbate.com/in/?"], :root ins.adsbygoogle[data-ad-client], :root [href^="https://freecourseweb.com/"] > .sitefriend, :root a[href^="https://prf.hn/click/"][href*="/creativeref:"] > img, :root a[href*="&maxads="], :root a[href^="http://www.adultempire.com/unlimited/promo?"][href*="&partner_id="], :root a[href^="https://1betandgonow.com/"], :root a[href^="https://www.googleadservices.com/pagead/aclk?"], :root a[href^="http://www.mrskin.com/tour"], :root a[href^="http://www.friendlyduck.com/AF_"], :root a[href^="https://getvideoz.click/"], :root a[href^="http://troopsassistedstupidity.com/"], :root a[href^="http://trk.globwo.online/"], :root a-ad, :root a[href^="https://offhandpump.com/"], :root a[href^="http://stickingrepute.com/"], :root #slashboxes > .deals-rail, :root [data-rc-widget="data-rc-widget"], :root a[href^="http://premonitioninventdisagree.com/"], :root a[href^="http://naggingirresponsible.com/"], :root a[href^="https://in.rabbtrk.com/"], :root div[data-ad-targeting], :root a[href^="https://hotplaystime.life/"], :root a[href^="http://www.h4trck.com/"], :root a[href^="https://81ac.xyz/"], :root a[href^="http://guestblackmail.com/"], :root a[href^="http://cam4com.go2cloud.org/aff_c?"], :root a[href^="https://ads.betfair.com/redirect.aspx?"], :root a[href^="https://ad.kubiccomps.icu/"], :root [href^="https://www.mypatriotsupply.com/"] > img, :root a[href^="https://trk.softonixs.xyz/"], :root a[href^="https://sexynearme.com/"], :root a[href^="https://myclick-2.com/"], :root a[href^="http://dragnag.com/"], :root [id^="div-gpt-ad"], :root .ob_container .item-container-obpd, :root div[id^="yandex_ad"], :root a[href^="https://www8.smartadserver.com/"], :root a[href^="https://pb-imc.com/"], :root a[href^="http://deskfrontfreely.com/"], :root a[href^="https://track.adform.net/"], :root a[href^="http://avthelkp.net/"], :root a[href^="https://a.medfoodhome.com/"], :root a[href^="https://engine.flixtrial.com/"], :root [data-type="ad-vertical"], :root [data-taboola-options], :root a[href^="http://annulmentequitycereals.com/"], :root a[href^="//startgaming.net/tienda/" i], :root a[href^="https://www.get-express-vpn.com/offer/"], :root a[href^="//s.st1net.com/splash.php"], :root a[href^="https://join.virtualtaboo.com/track/"], :root [id^="ad_sky"], :root a[href^="http://coefficienttolerategravel.com/"], :root a[href^="https://a.medfoodsafety.com/"], :root a[href^="//go.eabids.com/"], :root a[href^=" https://www.friendlyduck.com/AF_"], :root a[href*="/jump/next.php?r="], :root [href^="https://ilovemyfreedoms.com/landing-"], :root a[href^="https://go.nordvpn.net/aff"] > img, :root .\[\&_\.gdprAdTransparencyCogWheelButton\]\:\!pjra-z-\[5\], :root [href^="http://clicks.totemcash.com/"], :root a[href^="https://ad.zanox.com/ppc/"] > img, :root a[onmousedown^="this.href='http://paid.outbrain.com/network/redir?"][target="_blank"] + .ob_source, :root a[href^="https://lone-pack.com/"], :root [data-d-ad-id], :root a[href*=".engine.adglare.net/"], :root [href^="https://www.profitablegatecpm.com/"], :root div[id^="lazyad-"], :root a[href^="http://com-1.pro/"], :root a[href*=".cfm?domain="][href*="&fp="], :root [data-dynamic-ads], :root a[href^="https://xbet-4.com/"], :root a[data-widget-outbrain-redirect^="http://paid.outbrain.com/network/redir?"], :root [data-ad-width], :root [data-block-type="ad"], :root [href^="https://join.playboyplus.com/track/"], :root a[data-url^="http://paid.outbrain.com/network/redir?"] + .author, :root a[href^="https://ab.advertiserurl.com/aff/"], :root a[data-oburl^="https://paid.outbrain.com/network/redir?"], :root a[href^="https://trk.sportsflix4k.club/"], :root a[href^="http://dragfault.com/"], :root [href^="https://cpa.10kfreesilver.com/"], :root a[href^="https://a.bestcontentfood.top/"], :root a[data-obtrack^="http://paid.outbrain.com/network/redir?"], :root a[href^="https://go.xlivrdr.com"], :root [onclick^="location.href='https://1337x.vpnonly.site/"], :root [name^="google_ads_iframe"], :root [id^="section-ad-banner"], :root [data-advadstrackid], :root a[href^="http://muzzlematrix.com/"], :root [href^="https://zone.gotrackier.com/"], :root [href^="https://www.restoro.com/"], :root [href^="https://www.targetingpartner.com/"], :root div[class^="Adstyled__AdWrapper-"], :root a[href^="https://startgaming.net/tienda/" i], :root .section-subheader > .section-hotel-prices-header, :root [href^="https://www.hostg.xyz/"] > img, :root a[href^="http://adultfriendfinder.com/go/"], :root a[href^="https://fastestvpn.com/lifetime-special-deal?a_aid="], :root a[href^="https://tour.mrskin.com/"], :root citrus-ad-wrapper, :root a[onmousedown^="this.href='https://paid.outbrain.com/network/redir?"][target="_blank"], :root a[href^="https://go.grinsbest.com/"], :root a[href^="https://vo2.qrlsx.com/"], :root [href^="https://www.avantlink.com/click.php"] img, :root a[href^="https://losingoldfry.com/"], :root [href^="https://routewebtk.com/"], :root a[href^="https://t.ajump1.com/"], :root a[href^="https://bodelen.com/"], :root a[href*=".g2afse.com/"], :root span[data-ez-ph-id], :root [href^="https://track.aftrk1.com/"], :root div[id^="adngin-"], :root [data-rc-widget], :root a[href^="https://go.hpyjmp.com"], :root [href^="https://mystore.com/"] > img, :root div[id^="div-ads-"], :root [href^="https://rapidgator.net/article/premium/ref/"], :root [href^="https://join.girlsoutwest.com/"], :root a[href^="https://track.aftrk3.com/"], :root [href^="https://join3.bannedsextapes.com"], :root a[href^="https://go.xxxijmp.com"], :root [href^="https://istlnkcl.com/"], :root div[data-adunit], :root app-large-ad, :root [href^="https://turtlebids.irauctions.com/"] img, :root [href^="https://wct.link/click?"], :root [href^="https://go.xlrdr.com"], :root a[href^="https://tm-offers.gamingadult.com/"], :root [href^="https://charmingdatings.life/"], :root [href^="https://glersakr.com/"], :root [href^="https://v.investologic.co.uk/"], :root a[href^="https://www.goldenfrog.com/vyprvpn?offer_id="][href*="&aff_id="], :root [id^="ad-wrap-"], :root a[href*="//jjgirls.com/sex/Chaturbate"], :root [data-id^="div-gpt-ad"], :root a[href^="https://tracker.loropartners.com/"], :root [href^="https://awbbjmp.com/"], :root a[data-href^="http://ads.trafficjunky.net/"], :root a[href*=".adsrv.eacdn.com/"], :root [href^="https://antiagingbed.com/discount/"] > img, :root div[id^="ad-position-"], :root a[href^="https://www.toprevenuegate.com/"], :root a[href^="https://leg.xyz/?track="], :root [href^="https://www.brighteonstore.com/products/"] img, :root a[href^="https://bngprm.com/"], :root [href^="https://shiftnetwork.infusionsoft.com/go/"] > img, :root a[href^="https://go.strpjmp.com/"], :root a[href^="https://go.bushheel.com/"], :root a[href^="https://ctjdwm.com/"], :root a[href^="https://camfapr.com/landing/click/"], :root [href="//sexcams.plus/"], :root [href^="http://www.mypillow.com/"] > img, :root #kt_player > a[target="_blank"], :root a[href^="http://bongacams.com/track?"], :root [href^="http://mypillow.com/"] > img, :root [href="https://ourgoldguy.com/contact/"] img, :root [href="https://www.masstortfinancing.com/"] > img, :root a[href^="https://go.rmhfrtnd.com/"], :root [href="https://jdrucker.com/gold"] > img, :root a[href^="https://track.1234sd123.com/"], :root zeus-ad, :root [data-testid="prism-ad-wrapper"], :root [href^="https://ad.admitad.com/"], :root [href^="https://mypillow.com/"] > img, :root [data-testid="ad_testID"], :root [data-ez-name], :root [data-revive-zoneid] > iframe, :root [data-testid="adBanner-wrapper"], :root [href^="https://mylead.global/stl/"] > img, :root [href^="https://mypatriotsupply.com/"] > img, :root div[class*="publift-widget-"]:has(.fuse-slot-sticky), :root a[href^="https://witnessjacket.com/"], :root [data-mobile-ad-id], :root a[href^="https://fc.lc/ref/"], :root [data-adshim], :root topadblock, :root a[href^="//s.zlinkd.com/"], :root [class^="amp-ad-"], :root a[href^="http://handgripvegetationhols.com/"], :root a[href^="https://bs.serving-sys.com"], :root a[href^="https://go.cmtaffiliates.com/"], :root [href^="https://optimizedelite.com/"] > img, :root [data-name="adaptiveConstructorAd"], :root a[href^="https://gamingadlt.com/?offer="], :root a[href^="http://partners.etoro.com/"], :root [href^="https://goldcometals.com/clk.trk"], :root [data-desktop-ad-id], :root a[href^="https://www.liquidfire.mobi/"], :root .grid > .container > #aside-promotion, :root DFP-AD, :root [id^="ad_slider"], :root [data-adbridg-ad-class], :root a[href^="https://linkboss.shop/"], :root [data-adblockkey], :root [onclick*="content.ad/"], :root [data-ad-manager-id], :root AMP-AD, :root [data-ad-cls], :root a[href^="https://6-partner.com/"], :root [href^="https://affiliate.fastcomet.com/"] > img, :root a[href^="https://go.mnaspm.com/"], :root [class^="adDisplay-module"], :root a[href^="http://tc.tradetracker.net/"] > img, :root [href^="https://www.cloudways.com/en/?id"], :root AD-SLOT, :root #kt_player > div[style="position: absolute; inset: 0px; z-index: 170;"], :root [data-freestar-ad][id], :root a[href^="https://go.xxxjmp.com"], :root #leader-companion > a[href], :root a[href^="http://www.adultdvdempire.com/?partner_id="][href*="&utm_"], :root [data-ad-module], :root app-advertisement, :root a[href^="https://getmatchedlocally.com/"], :root a[href^="https://clickins.slixa.com/"], :root [class^="div-gpt-ad"], :root a[href^="https://traffdaq.com/"], :root a[href^="https://cam4com.go2cloud.org/"], :root a[href^="http://li.blogtrottr.com/click?"], :root .ob_dual_right > .ob_ads_header ~ .odb_div { display: none !important; }</style><style id="action-links-styles">
+  @import url('https://fonts.googleapis.com/css2?family=Mulish&display=swap');
+  
+  #anima-interface{
+    transition: all 0.5s ease-in-out;
+  }
+  
+  #anima-watermark {
+    transition: all 0.5s ease-in-out;
+    display: none;
+  }
+  #anima-watermark-link{
+    position: fixed;
+    bottom:20px;
+    height:30px;
+    border-radius: 1000px;
+    background: #3B3B3B;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    cursor:pointer;
+    user-select:none;
+    transition: width 0.25s cubic-bezier(0.175, 0.885, 0.320, 1.275);
+    text-decoration:none;
+    color:#fff;
+    padding:8px 16px 8px 11px;
+    font-family:Mulish, sans-serif;
+    font-size:12px;
+  }
+  #anima-watermark-link .text {
+    margin-left: 6px;
+  }
+  
+  .omniview-anima-action-links .link{
+    height: 30px;
+    width: 30px;
+    border-radius: 1000px;
+    background: #3B3B3B;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    cursor:pointer;
+    user-select:none;
+    transition: width 0.25s cubic-bezier(0.175, 0.885, 0.320, 1.275);
+    text-decoration:none;
+    color:#fff;
+  }
+  .omniview-anima-action-links #comment-link .text,.omniview-anima-action-links #code-link .text{
+    display:none;
+    font-size:12px;
+    margin-right:5px;
+  }
+  .omniview-anima-action-links #comment-link:hover,.omniview-anima-action-links #code-link:hover{
+    width:105px;
+  }
+  .omniview-anima-action-links #comment-link.pop-active,.omniview-anima-action-links #code-link.pop-active{
+    width:105px;
+    background: #FF6250;
+  }
+  .omniview-anima-action-links #comment-link.pop-active .text,.omniview-anima-action-links #code-link.pop-active .text{
+    display:block
+  }
+  .omniview-anima-action-links #comment-link:hover .text,.omniview-anima-action-links #code-link:hover .text{
+    display:block;
+  }
+  
+  .link.navigation{
+    position:fixed;
+    left:50%;
+    transform:translateX(-50%);
+    width:auto;
+    height:32px;
+    color:#fff;
+    font-size:12px;
+    cursor:default;
+    padding:0 5px;
+  }
+  .link.navigation .icon{
+    margin:0 6px;
+    fill:none;
+    stroke:currentColor;
+    cursor:pointer;
+  }
+  .link.navigation .icon.disabled{
+    opacity:0.5;
+    cursor:default;
+  }
+  
+  
+  .link.navigation .home-icon{
+    margin-left:6px;
+    fill:currentColor;
+    stroke:currentColor;
+    cursor:pointer;
+  }
+  
+  .omniview-anima-action-links .restart{
+    height: 30px;
+    padding:0 12px;
+    background: #3B3B3B;
+    border-radius: 1000px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    cursor:pointer;
+    color:#f1f1f1;
+    font-size: 12px;
+  }
+  
+  .omniview-anima-action-links{
+    display:flex;
+    align-items:center;
+    position:fixed;
+    bottom:20px;
+    right:20px;
+    font-family:Mulish, sans-serif;
+    transition: all 0.5s ease-in-out;
+    opacity:1;
+  }
+  
+  .omniview-anima-action-links > * + *{
+     margin-right: 0;
+     margin-left: 10px;
+  }
+  
+  .idle{
+    opacity:0;
+    pointer-events:none;
+  }
+  
+  #popoverOpener {
+    position: absolute;
+    left: 50%;
+    margin-left: -10vw;
+    text-align: center;
+    top: 45vh;
+    width: 20vw;
+  }
+  
+  
+  .popover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1060;
+    display: none;
+    font-family: "sans-serif";
+    font-size: 14px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 5px 10px rgba(0,0,0,.2);
+  }
+  
+  .popover.top {
+    margin-top: -12px
+  }
+  
+  .popover.right {
+    margin-left: 10px
+  }
+  
+  .popover.bottom {
+    margin-top: 10px
+  }
+  
+  .popover.left {
+    margin-left: -10px
+  }
+  
+  .popover-title {
+    padding: 8px 14px;
+    margin: 0;
+    font-size: 14px;
+    background-color: #f7f7f7;
+    border-bottom: 1px solid #ebebeb;
+    border-radius: 5px 5px 0 0
+  }
+  
+  .popover-content {
+    height: 100%;
+    width: 100%;
+    display:flex;
+    overflow:hidden;
+    font-family:Mulish, sans-serif;
+  }
+  
+  
+  
+  .popover>.arrow,.popover>.arrow:after {
+    position: absolute;
+    display: block;
+    width: 0;
+    height: 0;
+    border-color: transparent;
+    border-style: solid
+  }
+  
+  .popover>.arrow {
+    border-width: 11px
+  }
+  
+  .popover>.arrow:after {
+    content: "";
+    border-width: 10px
+  }
+  
+  .popover.top>.arrow {
+    bottom: -11px;
+    left: 50%;
+    margin-left: -11px;
+    border-top-color: #999;
+    border-top-color: rgba(0,0,0,.25);
+    border-bottom-width: 0
+  }
+  
+  .popover.top>.arrow:after {
+    bottom: 1px;
+    margin-left: -10px;
+    content: " ";
+    border-top-color: #fff;
+    border-bottom-width: 0
+  }
+  
+  .popover.right>.arrow {
+    top: 50%;
+    left: -11px;
+    margin-top: -11px;
+    border-right-color: #999;
+    border-right-color: rgba(0,0,0,.25);
+    border-left-width: 0
+  }
+  
+  .popover.right>.arrow:after {
+    bottom: -10px;
+    left: 1px;
+    content: " ";
+    border-right-color: #fff;
+    border-left-width: 0
+  }
+  
+  .popover.bottom>.arrow {
+    top: -11px;
+    left: 50%;
+    margin-left: -11px;
+    border-top-width: 0;
+    border-bottom-color: #999;
+    border-bottom-color: rgba(0,0,0,.25)
+  }
+  
+  .popover.bottom>.arrow:after {
+    top: 1px;
+    margin-left: -10px;
+    content: " ";
+    border-top-width: 0;
+    border-bottom-color: #fff
+  }
+  
+  .popover.left>.arrow {
+    top: 50%;
+    right: -11px;
+    margin-top: -11px;
+    border-right-width: 0;
+    border-left-color: #999;
+    border-left-color: rgba(0,0,0,.25)
+  }
+  
+  .popover.left>.arrow:after {
+    right: 1px;
+    bottom: -10px;
+    content: " ";
+    border-right-width: 0;
+    border-left-color: #fff
+  }
+  
+  
+  
+  #anima-comment-popover,#anima-code-popover{
+    background:#333333;
+    color:#fff;
+  }
+  
+  #anima-comment-popover.top>.arrow,#anima-comment-popover.top>.arrow:after,#anima-code-popover.top>.arrow:after,#anima-code-popover.top>.arrow {
+    border-top-color:#333;
+  }
+  
+  #anima-comment-popover .btn,#anima-code-popover .btn {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 6px 20px;
+    background: #FF6250;
+    color:#fff;
+    border-radius: 100px;
+    width: max-content;
+    text-decoration:none;
+  }
+  
+  @media screen and (max-width: 550px) {
+    #anima-watermark-link {
+      padding: 6px !important;
+    }
+    #anima-watermark-link .text {
+      display: none !important;
+    }
+  }
+  
+  </style></head><body style="margin: 0px; background: rgb(255, 255, 255); overflow-x: hidden;" dark-scroll=""><input type="hidden" id="anPageName" name="page" value="desktop-6"><div class="desktop-6 screen " data-id="42:290"><img class="comp-2u-2-ZnKzSm" data-id="58:333" src="https://cdn.animaapp.com/projects/66ac266f7b252404617668e8/releases/66ac2de2b0d987a312b80781/img/comp-2u-2.gif" anima-src="https://cdn.animaapp.com/projects/66ac266f7b252404617668e8/releases/66ac2de2b0d987a312b80781/img/comp-2u-2.gif" alt="Comp 2u 2"><img class="image-6-ZnKzSm" data-id="51:323" src="https://cdn.animaapp.com/projects/66ac266f7b252404617668e8/releases/66ac2de2b0d987a312b80781/img/image-6.png" anima-src="https://cdn.animaapp.com/projects/66ac266f7b252404617668e8/releases/66ac2de2b0d987a312b80781/img/image-6.png" alt="image 6"><img class="comp-2u-1-ZnKzSm" data-id="51:321" src="https://cdn.animaapp.com/projects/66ac266f7b252404617668e8/releases/66ac2de2b0d987a312b80781/img/comp-2u-2.gif" anima-src="https://cdn.animaapp.com/projects/66ac266f7b252404617668e8/releases/66ac2de2b0d987a312b80781/img/comp-2u-2.gif" alt="Comp 2u 1"><div class="mv-cover-out-now-ZnKzSm" data-id="42:294">MV COVER OUT NOW!</div><div class="group-3-ZnKzSm" data-id="42:303"><div class="home-qqmt66 inter-normal-white-30px" data-id="42:304">Home</div><div class="about-me-qqmt66 inter-normal-white-30px" data-id="42:305">About Me</div><div class="portfolio-qqmt66 inter-normal-white-30px" data-id="42:306">Portfolio</div><div class="contact-qqmt66" data-id="42:307">Contact</div></div><div class="wireframe-1-ZnKzSm" data-id="51:325"><div class="rectangle-17-665vQG" data-id="60:346"></div><img class="image-10-665vQG" data-id="68:20" src="https://cdn.animaapp.com/projects/66ac266f7b252404617668e8/releases/66ac2de2b0d987a312b80781/img/image-10.png" anima-src="https://cdn.animaapp.com/projects/66ac266f7b252404617668e8/releases/66ac2de2b0d987a312b80781/img/image-10.png" alt="image 10"><div class="group-26-665vQG" data-id="68:24"><img class="image-7-2vVRxp image-7" data-id="60:342" src="https://cdn.animaapp.com/projects/66ac266f7b252404617668e8/releases/66ac2de2b0d987a312b80781/img/image-10.png" anima-src="https://cdn.animaapp.com/projects/66ac266f7b252404617668e8/releases/66ac2de2b0d987a312b80781/img/image-10.png" alt="image 7"><img class="image-8-2vVRxp" data-id="68:18" src="https://cdn.animaapp.com/projects/66ac266f7b252404617668e8/releases/66ac2de2b0d987a312b80781/img/image-10.png" anima-src="https://cdn.animaapp.com/projects/66ac266f7b252404617668e8/releases/66ac2de2b0d987a312b80781/img/image-10.png" alt="image 8"><img class="image-9-2vVRxp" data-id="68:19" src="https://cdn.animaapp.com/projects/66ac266f7b252404617668e8/releases/66ac2de2b0d987a312b80781/img/image-10.png" anima-src="https://cdn.animaapp.com/projects/66ac266f7b252404617668e8/releases/66ac2de2b0d987a312b80781/img/image-10.png" alt="image 9"></div><p class="a-fan-cover-for-aste-665vQG inter-normal-black-20px" data-id="68:22">A fan cover for Aster Arcadia of NIJISANJI EN that was made to celebrate his birthday. The project was made with a diverse group of fan artists, editors, and singers in order to create a great output. I was in charge with editing the video which was done with the help of After Effects applying concepts of rigging, VFX, and motion graphics in the process!</p><a href="https://www.youtube.com/watch?v=qmMNC43iEz0&amp;pp=ygUQbmlrbyBjd2lwcyBhbmltYQ%3D%3D" target="_blank"><p class="fan-cover-anima-by-arcadians-665vQG" data-id="68:23" data-hotspot-id="hp-0">[FAN COVER] ANIMA - by Arcadians</p></a></div><div class="group-23-ZnKzSm group-23" data-id="105:10"><div class="rectangle-13-e2N4T4" data-id="105:11"></div><div class="watch-now-e2N4T4" data-id="105:12">WATCH NOW</div></div><div class="wireframe-2-ZnKzSm" data-id="59:334"><div class="rectangle-15-7iT7Ua" data-id="60:337"></div><div class="group-23-7iT7Ua group-23" data-id="60:348"><div class="rectangle-16-DMkTix" data-id="60:339"></div><h1 class="title-DMkTix" data-id="60:347">yt embed</h1></div><p class="an-animation-collabo-7iT7Ua inter-normal-black-20px" data-id="60:349">An animation collaboration with @UUoottUU to create an Aster Arcadia version of the catchy song and animation! The animation was made with channel’s template, Adobe After Effects, and Duik Angela.</p><div class="rabbit-hole-deco27-7iT7Ua" data-id="60:350">rabbit hole ★ deco27</div><img class="image-7-7iT7Ua image-7"
+   data-id="60:341" src="./assets/img/rabbit.gif" anima-src="https://cdn.animaapp.com/projects/66ac266f7b252404617668e8/releases/66ac2de2b0d987a312b80781/img/image-7.png" alt="image 7"><div class="group-24-7iT7Ua" data-id="68:12"><div class="rectangle-18" data-id="68:10"></div><p class="rabbit-hole-rabbit-hole-rabbit-hole" data-id="68:11">RABBIT HOLE RABBIT HOLE RABBIT HOLE</p></div><div class="group-25-7iT7Ua" data-id="68:13"><div class="rectangle-18" data-id="68:14"></div><p class="rabbit-hole-rabbit-hole-rabbit-hole" data-id="68:15">RABBIT HOLE RABBIT HOLE RABBIT HOLE</p></div><div class="original-by-channelcastation-7iT7Ua inter-normal-black-20px" data-id="68:21">ORIGINAL BY CHANNELCASTATION</div><div class="frame-2-7iT7Ua" data-id="60:355"><div class="ellipse-3-0PQ8eW" data-id="60:352"></div><div class="ellipse-4-0PQ8eW" data-id="60:353"></div><div class="ellipse-5-0PQ8eW" data-id="60:354"></div></div></div></div><script src="launchpad-js/launchpad-banner.js" async=""></script><script defer="" src="https://animaapp.s3.amazonaws.com/static/restart-btn.min.js"></script><div id="hotspots_wrapper"><div class="hotspot" id="hp-0" style="width: 570px; height: 39px; top: 1664px; left: 670px; z-index: -1; opacity: 0;"></div></div><div id="t_preload_links"><link href="/desktop-6" rel="prefetch"><link href="/desktop-5" rel="prefetch"><link href="/about-me" rel="prefetch"></div><div id="anima-interface" data-turbo-permanent="true" class="idle"><!---->
+          <div id="anima-comment-popover" class="popover top" role="tooltip" style="left: -205px; top: -220px;">
+            <div class="arrow" style="margin-left: 128px;"></div>
+            <div class="popover-content" style="align-items:center">
+              <div style="display:flex;flex-direction:column;height: 100%;padding: 20px;">
+                <h3 style="font-size:18px;margin-bottom:10px;font-weight:500;line-height: 26px;font-family: Roslindale;">
+                  Leave feedback and collaborate
+                </h3>
+                <p style="font-size:12px;margin-bottom:20px;font-weight:400;line-height: 20px;">
+                  Login to your account to leave comments. Don't have an account?
+                  Sign up for free!
+                </p>
+                <a target="_blank" rel="noopener noreferrer" class="btn" href="https://projects.animaapp.com/p/undefined/s/undefined?mode=comments&amp;utm_campaign=add-comment&amp;utm_medium=add-comment&amp;utm_source=animaapp.io">Add comment</a>
+              </div>
+  
+              <div style="display:flex;align-items:center;justify-content:center;padding-right:20px">
+                <img src="https://animaapp.s3.amazonaws.com/static/comment-illustration.svg">
+              </div>
+            </div>
+          </div>
+          <div id="anima-code-popover" class="popover top" role="tooltip" style="left: -205px; top: -220px;">
+            <div class="arrow" style="margin-left: 168px;"></div>
+            <div class="popover-content" style="align-items:center">
+              <div style="display:flex;flex-direction:column;height: 100%;padding: 20px;">
+                <h3 style="font-size:18px;margin-bottom:10px;font-weight:500;line-height: 26px;font-family: Roslindale;">
+                  Get clean code you’ll love with Anima
+                </h3>
+                <p style="font-size:12px;margin-bottom:20px;font-weight:400;line-height: 20px;">
+                  Login and easily export HTML, React or Vue of this prototype.
+                  Don’t have an account? Sign up for free!
+                </p>
+                <a target="_blank" rel="noopener noreferrer" class="btn" href="https://projects.animaapp.com/p/undefined/s/undefined?mode=code&amp;utm_campaign=get-code&amp;utm_medium=get-code&amp;utm_source=animaapp.io">
+                  Get code
+                </a>
+              </div>
+  
+              <img src="https://animaapp.s3.amazonaws.com/static/code-illustration.svg">
+            </div>
+          </div>
+          <div class="omniview-anima-action-links" id="actions-wrap">
+            <div class="omniview-anima-action-links">
+              <div id="page-nav" class="link navigation" style="display: none;">
+                <svg id="homepage-icon" class="home-icon" width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M8.151 11a.25.25 0 01-.167-.436l4.349-3.913a.25.25 0 01.334 0l4.349 3.913a.25.25 0 01-.167.436H8.15zM16 12H9v4a1 1 0 001 1h5a1 1 0 001-1v-4z" fill="#fff"></path>
+                </svg>
+  
+                <svg class="icon" id="arrow-left" width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M15 18l-6-6 6-6" stroke="#fff" stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
+  
+                <span id="page-num"></span>
+  
+                <svg class="icon" id="arrow-right" width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M9 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
+              </div>
+  
+              <a class="link" id="comment-link" target="_blank" style="display: none;">
+                <span class="text">Comment</span>
+                <svg width="20" height="20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M4.301 15.137a.551.551 0 01.199-.55c.314-.23.554-.554.718-.965A6.015 6.015 0 014 10 6.006 6.006 0   0110.001 4 6.006 6.006 0 0116 10.001 6.006 6.006 0 019.999 16a5.98 5.98 0 01-3.095-.86 3.165 3.165 0 01-1.65.438 3.6  3.6 0 01-.57-.044c-.191-.03-.34-.186-.383-.397z" fill="#fff"></path>
+                </svg>
+              </a>
+  
+              <a class="link" id="code-link" target="_blank" style="display: none;">
+                <span class="text">Get Code</span>
+                <svg width="20" height="20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M12 15.667a1 1 0 01-.707-1.708l3.626-3.625-3.626-3.626a1 1 0 111.415-1.415l4.333 4.333a1 1 0 010 1.414l-4.333 4.333a.993.993 0 01-.707.294zM7.333 5a1 1 0 01.707 1.708l-3.626 3.625 3.627 3.626a1 1 0 11-1.415 1.415L2.293 11.04a1 1 0 010-1.415l4.333-4.333A.992.992 0 017.333 5z" fill="#fff"></path>
+                </svg>
+              </a>
+  
+              <div class="restart" id="restart-btn" style="display: none;">
+                <svg style="margin-right: 6px" width="12" height="12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M6 11.817A5.017 5.017 0 01.994 6.811c0-.207.169-.375.375-.375s.375.168.375.375A4.265 4.265 0 006 11.067a4.265 4.265 0 004.256-4.256A4.265 4.265 0 006 2.555a.376.376 0 01-.375-.376c0-.206.169-.374.375-.374a5.017 5.017 0 015.006 5.006A5.017 5.017 0 016 11.817z" fill="#fff"></path>
+                  <path d="M6.75 4.237a.37.37 0 01-.263-.112l-1.65-1.65a.363.363 0 010-.525L6.487.3c.15-.15.375-.15.525 0 .15.15.15.375 0 .525L5.625 2.212 7.012 3.6c.15.15.15.375 0 .525-.056.075-.15.112-.262.112z" fill="#fff"></path>
+                </svg>
+                Restart
+              </div>
+            </div>
+          </div>
+        <!----></div><div id="anima-watermark" style="display: none;" class="idle"><!----><a id="anima-watermark-link" target="_blank" href="https://www.animaapp.com?utm_campaign=public-link-banner&amp;utm_medium=public-link-banner&amp;utm_source=animaapp.io" style="right: 20px; left: auto; padding: 6px;">
+          <svg width="20" height="20" viewBox="0 0 20 20" id="anima-logo-icon" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M4.09293 3.00001H16.5327C16.5484 2.99976 16.5638 3.00351 16.5776 3.01092C16.5913 3.01832 16.603 3.02913 16.6114 3.04231C16.6198 3.0555 16.6247 3.07061 16.6256 3.08622C16.6265 3.10182 16.6233 3.1174 16.6165 3.13146C15.5441 5.29706 13.9276 7.14699 11.9253 8.50009C8.69117 10.6822 5.43436 10.9075 4.09389 10.9196C4.08165 10.9198 4.06949 10.9176 4.05811 10.9131C4.04672 10.9086 4.03636 10.9019 4.02761 10.8933C4.01887 10.8848 4.01192 10.8745 4.00718 10.8633C4.00244 10.852 4 10.8399 4 10.8276V3.09198C4 3.07982 4.00241 3.06778 4.00709 3.05656C4.01177 3.04534 4.01863 3.03516 4.02728 3.02661C4.03592 3.01805 4.04617 3.0113 4.05744 3.00673C4.06871 3.00217 4.08077 2.99988 4.09293 3.00001Z" fill="#FF6250"></path>
+            <path d="M6.77772 17.4446C8.31182 17.4446 9.55545 16.201 9.55545 14.6669C9.55545 13.1328 8.31182 11.8892 6.77772 11.8892C5.24363 11.8892 4 13.1328 4 14.6669C4 16.201 5.24363 17.4446 6.77772 17.4446Z" fill="#FFDF90"></path>
+            <path d="M12.4559 17.2799C11.6701 16.9799 11.2522 16.1151 11.5185 15.3496L13.6153 9.3656C13.884 8.60003 14.7387 8.22302 15.5245 8.52299C16.3103 8.82344 16.7282 9.68772 16.4619 10.4538L14.365 16.4377C14.0964 17.2033 13.2417 17.5808 12.4559 17.2799Z" fill="#3366FF"></path>
+          </svg>
+          <span class="text" style="display: none;">Made with Anima</span>
+        </a><!----></div></body></html>
