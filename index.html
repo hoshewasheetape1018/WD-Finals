@@ -5,7 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title> HOME </title>
   <link rel="icon" type="image/x-icon" href="./assets/img/star.png">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="./assets/css/style.css">
+  <script src="./assets/js/script.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Playfair+Display:wght@400..900&display=swap" rel="stylesheet">
 </head>
 <body>
   <div class="hero">
@@ -19,17 +25,17 @@
     <div class="tab"></div>
   </div>
 
-  <div class="navbar">
+  <div class="cnavbar">
     <nav>
         <ul class="nav-links">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About Me</a></li>
+            <li><a href="./index.html">Home</a></li>
+            <li><a href="./pages/aboutme/index.html">About Me</a></li>
             <li class="dropdown">
-                <a href="#portfolio" class="dropbtn">Portfolio</a>
+                <a href="#" class="dropbtn">Portfolio</a>
                 <div class="dropdown-content">
-                    <a href="#illustration">Illustration</a>
-                    <a href="#edit">Edit</a>
-                    <a href="#webdesign">Web Design</a>
+                    <a href="./pages/art/index.html">Illustration</a>
+                    <a href="./pages/edit/index.html">Edit</a>
+                    <a href="./pages/webdesign/index.html">Web Design</a>
                   </li>
                   <li class="contact"><a href="#contact">Contact</a></li>
               </ul>
@@ -37,8 +43,84 @@
       </div>
 
 
-      <div class="content"></div>
-      <div class="content"></div>
+      <div class="content" id="aboutme">
+        <div class="abme-container">
+        <h2> ABOUT ME </h2>
+        <h3>Hi, I’m Francesca.</h3>
+        <h5> I am a FEUTech student </h5>
+        <h4>My favorite tools</h4>
+        <div class="tools-grid">
+          <img src="" alt="AE">
+          <img src="" alt="SAI2">
+          <img src="" alt="HTML">
+          <img src="" alt="CSS">
+        </div>
+        <a href="./pages/">
+          <h2 class="link">Learn more about me here!</h2>
+        </a>
+      </div>
+      </div>
+      <div class="abme-container">
+        <div class="ab-me-overlay"></div>
+        <img src="" alt="">
+        <div class="icons">
+          <img src="" alt="fb">
+          <img src="" alt="twt">
+          <img src="" alt="gmail">
+          <img src="" alt="github">
+        </div>
+      </div>
+      <div class="content" id="portfolio">
+        <div id="portfolio-overlay"></div>
+        <div class="portfolio-dark-container">
+        <div id="portfoliocarousel" class="carousel slide">
+          <div class="indicators">
+            <button class="illustration" type="button" data-bs-target="#portfoliocarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1">
+              Illustration
+            </button>
+            <button class="editing" type="button" data-bs-target="#portfoliocarousel" data-bs-slide-to="1" aria-label="Slide 2">
+             Editing
+            </button>
+            <button class="webdesign" type="button" data-bs-target="#portfoliocarousel" data-bs-slide-to="2" aria-label="Slide 3">
+             Web design
+            </button>
+          </div>
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <div class="carousel-caption d-none d-md-block">
+                  <h5>TITLE</h5>
+                  <p>SUB
+                  </p>
+                </div>
+              <img src="./assets/img/nova.jpg" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+              <div class="carousel-caption d-none d-md-block">
+                  <h5>TITLE</h5>
+                  <p>
+                    SUB
+                  </p>
+                </div>
+              <img src="./assets/img/aster.gif" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+              <div class="carousel-caption d-none d-md-block">
+                  <h5>TITLE</h5>
+                  <p>
+                    SUB
+                  </p>
+                </div>
+              <img src="./assets/img/webdes.png" class="d-block w-100" alt="...">
+            </div>
+
+          </div>
+       
+        </div>
+
+
+      </div>
+      </div>
+
       <footer>
         <div class="footer-content">
           All rights reserved.
