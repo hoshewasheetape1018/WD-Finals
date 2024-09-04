@@ -134,7 +134,11 @@ WD-ProjectName
 <!--START_SECTION:waka-->
 
 ```txt
-No activity tracked
+SCSS    2 hrs 42 mins   █████████████████▒░░░░░░░   68.92 %
+HTML    1 hr 1 min      ██████▓░░░░░░░░░░░░░░░░░░   26.32 %
+CSS     7 mins          ▓░░░░░░░░░░░░░░░░░░░░░░░░   03.07 %
+JSON    3 mins          ▒░░░░░░░░░░░░░░░░░░░░░░░░   01.61 %
+Other   0 secs          ░░░░░░░░░░░░░░░░░░░░░░░░░   00.08 %
 ```
 
 <!--END_SECTION:waka-->
