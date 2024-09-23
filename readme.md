@@ -134,7 +134,9 @@ WD-ProjectName
 <!--START_SECTION:waka-->
 
 ```txt
-No activity tracked
+TypeScript   1 hr 45 mins    ██████████▒░░░░░░░░░░░░░░   41.75 %
+HTML         1 hr 29 mins    ████████▓░░░░░░░░░░░░░░░░   35.33 %
+SCSS         58 mins         █████▓░░░░░░░░░░░░░░░░░░░   22.92 %
 ```
 
 <!--END_SECTION:waka-->
