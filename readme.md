@@ -134,9 +134,11 @@ WD-ProjectName
 <!--START_SECTION:waka-->
 
 ```txt
-HTML         2 hrs 14 mins   ████████▓░░░░░░░░░░░░░░░░   35.03 %
-SCSS         2 hrs 8 mins    ████████▒░░░░░░░░░░░░░░░░   33.40 %
-TypeScript   2 hrs 1 min     ████████░░░░░░░░░░░░░░░░░   31.57 %
+HTML         5 hrs 37 mins   ████████████▓░░░░░░░░░░░░   50.50 %
+SCSS         3 hrs 22 mins   ███████▓░░░░░░░░░░░░░░░░░   30.37 %
+TypeScript   2 hrs 7 mins    ████▓░░░░░░░░░░░░░░░░░░░░   19.10 %
+Git          0 secs          ░░░░░░░░░░░░░░░░░░░░░░░░░   00.01 %
+Other        0 secs          ░░░░░░░░░░░░░░░░░░░░░░░░░   00.01 %
 ```
 
 <!--END_SECTION:waka-->
