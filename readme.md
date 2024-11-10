@@ -134,9 +134,9 @@ WD-ProjectName
 <!--START_SECTION:waka-->
 
 ```txt
-Java     2 hrs 18 mins   ██████████████████▓░░░░░░   74.96 %
-Python   38 mins         █████░░░░░░░░░░░░░░░░░░░░   20.64 %
-Other    8 mins          █░░░░░░░░░░░░░░░░░░░░░░░░   04.40 %
+Java     2 hrs 18 mins   █████████████▓░░░░░░░░░░░   55.31 %
+Python   1 hr 43 mins    ██████████▒░░░░░░░░░░░░░░   41.34 %
+Other    8 mins          █░░░░░░░░░░░░░░░░░░░░░░░░   03.35 %
 ```
 
 <!--END_SECTION:waka-->
