@@ -134,8 +134,7 @@ WD-ProjectName
 <!--START_SECTION:waka-->
 
 ```txt
-Java   36 mins         ██████████████████████░░░   88.34 %
-Text   4 mins          ███░░░░░░░░░░░░░░░░░░░░░░   11.66 %
+No activity tracked
 ```
 
 <!--END_SECTION:waka-->
