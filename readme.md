@@ -134,9 +134,7 @@ WD-ProjectName
 <!--START_SECTION:waka-->
 
 ```txt
-Python   53 mins         ██████████████████████▓░░   90.45 %
-JSON     4 mins          ██░░░░░░░░░░░░░░░░░░░░░░░   08.22 %
-Text     0 secs          ▒░░░░░░░░░░░░░░░░░░░░░░░░   01.33 %
+No activity tracked
 ```
 
 <!--END_SECTION:waka-->
