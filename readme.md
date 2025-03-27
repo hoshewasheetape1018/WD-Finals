@@ -134,7 +134,10 @@ WD-ProjectName
 <!--START_SECTION:waka-->
 
 ```txt
-No activity tracked
+Text     12 mins         ██████████████████▒░░░░░░   73.95 %
+Python   4 mins          ██████▒░░░░░░░░░░░░░░░░░░   24.73 %
+Other    0 secs          ▒░░░░░░░░░░░░░░░░░░░░░░░░   01.03 %
+JSON     0 secs          ░░░░░░░░░░░░░░░░░░░░░░░░░   00.29 %
 ```
 
 <!--END_SECTION:waka-->
