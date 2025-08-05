@@ -134,9 +134,7 @@ WD-ProjectName
 <!--START_SECTION:waka-->
 
 ```txt
-HTML         3 mins          ███████████████▓░░░░░░░░░   62.43 %
-JavaScript   2 mins          ████████▓░░░░░░░░░░░░░░░░   35.10 %
-JSON         0 secs          ▓░░░░░░░░░░░░░░░░░░░░░░░░   02.47 %
+No activity tracked
 ```
 
 <!--END_SECTION:waka-->
