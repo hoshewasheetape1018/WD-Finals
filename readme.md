@@ -134,10 +134,10 @@ WD-ProjectName
 <!--START_SECTION:waka-->
 
 ```txt
-PHP        4 hrs 55 mins   █████████████████████████   99.49 %
+PHP        4 hrs 55 mins   ████████████████████████▓   98.83 %
+Markdown   2 mins          ▒░░░░░░░░░░░░░░░░░░░░░░░░   00.76 %
 Bash       0 secs          ░░░░░░░░░░░░░░░░░░░░░░░░░   00.22 %
 Other      0 secs          ░░░░░░░░░░░░░░░░░░░░░░░░░   00.18 %
-Markdown   0 secs          ░░░░░░░░░░░░░░░░░░░░░░░░░   00.10 %
 ```
 
 <!--END_SECTION:waka-->
