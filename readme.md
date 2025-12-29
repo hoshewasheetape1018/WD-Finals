@@ -134,8 +134,7 @@ WD-ProjectName
 <!--START_SECTION:waka-->
 
 ```txt
-C#                                 4 hrs 42 mins   █████████████████████████   99.99 %
-Microsoft Visual Studio Solution   0 secs          ░░░░░░░░░░░░░░░░░░░░░░░░░   00.01 %
+C#   2 hrs 56 mins   █████████████████████████   100.00 %
 ```
 
 <!--END_SECTION:waka-->
