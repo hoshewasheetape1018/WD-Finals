@@ -134,8 +134,7 @@ WD-ProjectName
 <!--START_SECTION:waka-->
 
 ```txt
-Ren'Py   26 mins               ███████████████████▒░░░░░   77.35 %
-Text     7 mins                █████▓░░░░░░░░░░░░░░░░░░░   22.65 %
+Text   7 mins                █████████████████████████   100.00 %
 ```
 
 <!--END_SECTION:waka-->
