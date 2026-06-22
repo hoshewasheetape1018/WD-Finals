@@ -134,7 +134,8 @@ WD-ProjectName
 <!--START_SECTION:waka-->
 
 ```txt
-C#   3 hrs 6 mins          █████████████████████████   100.00 %
+C#     4 hrs 55 mins         ████████████████████░░░░░   80.54 %
+GLSL   1 hr 11 mins          █████░░░░░░░░░░░░░░░░░░░░   19.46 %
 ```
 
 <!--END_SECTION:waka-->
