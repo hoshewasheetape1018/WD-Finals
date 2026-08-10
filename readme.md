@@ -134,8 +134,7 @@ WD-ProjectName
 <!--START_SECTION:waka-->
 
 ```txt
-C#              1 hr 42 mins          ██████████████████████░░░   87.74 %
-Unity3D Asset   14 mins               ███░░░░░░░░░░░░░░░░░░░░░░   12.26 %
+C#   6 mins                █████████████████████████   100.00 %
 ```
 
 <!--END_SECTION:waka-->
