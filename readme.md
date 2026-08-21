@@ -134,7 +134,9 @@ WD-ProjectName
 <!--START_SECTION:waka-->
 
 ```txt
-No activity tracked
+JSON            10 mins               ███████████████████████▒░   93.90 %
+Text            0 secs                █▒░░░░░░░░░░░░░░░░░░░░░░░   05.98 %
+Unity3D Asset   0 secs                ░░░░░░░░░░░░░░░░░░░░░░░░░   00.12 %
 ```
 
 <!--END_SECTION:waka-->
