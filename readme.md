@@ -134,10 +134,7 @@ WD-ProjectName
 <!--START_SECTION:waka-->
 
 ```txt
-HTML            17 mins               ███████████████░░░░░░░░░░   60.56 %
-JSON            10 mins               █████████▒░░░░░░░░░░░░░░░   37.03 %
-Text            0 secs                ▓░░░░░░░░░░░░░░░░░░░░░░░░   02.36 %
-Unity3D Asset   0 secs                ░░░░░░░░░░░░░░░░░░░░░░░░░   00.05 %
+HTML   17 mins               █████████████████████████   100.00 %
 ```
 
 <!--END_SECTION:waka-->
