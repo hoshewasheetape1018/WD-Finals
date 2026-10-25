@@ -134,11 +134,7 @@ WD-ProjectName
 <!--START_SECTION:waka-->
 
 ```txt
-PHP     58 mins               █████████████████▓░░░░░░░   70.59 %
-YAML    11 mins               ███▒░░░░░░░░░░░░░░░░░░░░░   13.86 %
-Bash    10 mins               ███░░░░░░░░░░░░░░░░░░░░░░   12.14 %
-CSS     1 min                 ▒░░░░░░░░░░░░░░░░░░░░░░░░   01.73 %
-Other   1 min                 ▒░░░░░░░░░░░░░░░░░░░░░░░░   01.59 %
+No activity tracked
 ```
 
 <!--END_SECTION:waka-->
