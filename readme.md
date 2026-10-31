@@ -134,7 +134,8 @@ WD-ProjectName
 <!--START_SECTION:waka-->
 
 ```txt
-No activity tracked
+C#              54 mins               ████████████████▓░░░░░░░░   66.66 %
+Unity3D Asset   27 mins               ████████▒░░░░░░░░░░░░░░░░   33.34 %
 ```
 
 <!--END_SECTION:waka-->
